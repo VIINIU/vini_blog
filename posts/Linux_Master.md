@@ -4,7 +4,7 @@ date: 2025-04-28
 category: LINUX
 project: Certification
 thumbnail: linux.jpg
-author: VINI
+overview: true
 ---
 
 ![Linux Master](/images/linux.jpg)

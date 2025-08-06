@@ -2,8 +2,9 @@
 title: Arduino Mentoring ( 1 ) w.ESP32
 date: 2024-10-13
 author: VINI
-category: ESP32 # 새로운 필드
-project: Mentoring # 새로운 필드
+category: ESP32
+project: Mentoring
+overview: true
 thumbnail: lasr.jpg
 ---
 

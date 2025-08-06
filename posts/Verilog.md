@@ -2,180 +2,77 @@
 title: Verilog Basics
 date: 2025-05-22
 category: Verilog
+project: Verilog Study Group
 author: VINI
 ---
 
-## 시작하기에 앞서
-
-- 강의  
-  [반도체 설계 교육 센터](https://www.idec.or.kr/main/)에 올라와 있는 송재훈 강사님의 **Verilog HDL 언어 초급 및 설계 가이드라인** 강의를 듣고 작성한 필기노트입니다.
+# 분리수면 매니저 나비잠
 
 ---
 
-## Verilog HDL
-
-- **HDL description**: 내가 작성한 코드  
-- **library**: 각 게이트에 대한 라이브러리  
-- **Constrain**: 해당 모듈이 실리콘에서 차지할 **Area**, **Timing**, **Power**, **Testability**
+## ✔ 분리수면 매니저 나비잠
 
 ---
 
-## Module
+- **1세 미만 영아의 분리수면을 돕기위한 솔루션**
+    
+    아이의 **생체 신호 포착**을 통해 영아 **수면 중 돌연사를 예방**하며, 아이의 **수면 안전이 확보된 이후의 연령**에는 **홈캠 트래커로 활용 가능한 디바이스/애플리케이션 제작**을 목표로 함
+    
+- **중앙대학교 컴퓨터 하드웨어 동아리 CECOM** 내에서 진행된 프로젝트
+- **ESP32와 아두이노 기반**의 **하드웨어 모듈과 비콘**
+- **안드로이드 스튜디오** 기반의 제어 애플리케이션
 
-- Systems & Circuit/Logic Designs are represented as **module** unit in Verilog HDL  
-- Module은 C에서 함수 정도의 위치  
-- 각 Module끼리는 **Signal**로 연결됨
-
-### Structure of Module
-
-- **Name of a Module**
-  - Start with letter or underscore
-  - `$`, `_`, letter, digit 사용 가능
-
-- **Comment**
-  - `//` (한 줄), `/* */` (블록)
-
-- **Module Interface**
-  - in/out 방향 지정
-  - `[3:0]`처럼 multibit 표현 가능
-  - signal type (wire, reg) 지정
-
-- **Module Body Styles**
-  - **Structural Style**: 게이트 나열
-  - **Dataflow Style**: input의 변화를 따라 output 묘사
-  - **Behavioral Style**: 가장 자연어에 가까운 묘사 방식
+### 🏆 수상 실적
 
 ---
 
-## Signals
+- 2023 중앙대학교 공학교육혁신센터 주최 다학제 융합 IoT 캡스톤 디자인 경진대회 아이디어 평가회 우수상 수상 (본선 진출)
 
-- **Verilog 시그널 값**
-  - `0`, `1`, `X`, `Z`
-    - `X` = 미정 상태
-    - `Z` = 고임피던스
-
-- **Signal 클래스**
-  - **Net**: 소자 간 물리 연결
-  - **Register**: 값 저장 가능 변수 (reg)
-
-- **Signal Types**
-  - `wire`: 단일 소스
-  - `tri`: 복수 소스 가능, Z 상태 가능
-  - `wand`, `wor`: 시뮬레이션용
-
-- **Scalar & Vector**
-  - Scalar: 단일 비트 (예: `clock`)
-  - Vector: 복수 비트 (예: `[7:0]`)
-
-- **External Signal**
-  - `input`: 외부에서 읽기만 가능
-  - `output`: 외부로 출력
-  - `inout`: 양방향
+### ⚙ 관련 기술
 
 ---
 
-## Module Instantiation
+- **HW**
+    - 생체신호 측정, Bluetooth, UWB
+- **SW**
+    - 안드로이드 스튜디오(JAVA), Arduino(**C/C++)**
+- **Package Modeling**
+    - Autodesk Inventor
 
-- Module은 **템플릿**, instance를 생성하여 사용
-- 이름은 직접 정해야 함
-
-### Port 연결 규칙
-
-- **input**: internal은 net, external은 net/reg  
-- **output**: internal은 reg/net, external은 net  
-- **inout**: 둘 다 net  
-
-### Port Mapping
-
-- **Ordered list**: 순서 기반 연결  
-- **Named list**: 이름 기반 연결  
-- **Unconnected**: 사용하지 않는 포트는 생략 가능  
+### 📄 관련 자료
 
 ---
 
-## Signal Transformation
+![images/navizam/7.jpg](7.jpg)
 
-### Operand Types
+![images/navizam/8.jpg](8.jpg)
 
-- **Constant**
-  - Literal: `23`, `0.1`, `2'b01`
-  - `parameter`, `define` 구분
-    - `parameter`: 로컬
-    - `define`: 글로벌
+- 심박 / 산소포화도 측정을 통한 수면 중 실식 위험 감지알림
+- 틸트센서를 통한 수면 중 뒤집기 관측 알림
 
-- Signal, Function Call
+![images/navizam/9.jpg](9.jpg)
 
-💡 **정수 상수 표현**  
-예: `2'b01` → 2비트 이진수 `01`
+![images/navizam/10.jpg](10.jpg)
 
-- `size'base value`
-- base: `b`(binary), `o`(octal), `d`(decimal), `h`(hex)
-- `?` = Z의 다른 표기
-- `_`는 무시됨 (가독성용)
-- 사이즈보다 큰 값은 상위 비트 잘림
+- UWB 센서를 이용한 비콘 → 집 내부에서의 아이의 움직임 관측
+- 관측한 아이의 움직임에 따른 캠 트래킹
+
+![images/navizam/11.jpg](11.jpg)
+
+- 안드로이드 스튜디오를 이용하여 앱 개발
+
+### 🎎 결과 및 한계점
 
 ---
 
-### Bit Select & Part Select
+![images/navizam/20231005_174337.jpg](20231005_174337.jpg)
 
-```verilog
-reg [7:0] DataBus;
-DataBus[3]     // 1비트 선택
-DataBus[5:2]   // 범위 선택
+![images/navizam/1696581023925.jpg](1696581023925.jpg)
 
-Bit-Select & Part-Select
-
-reg [7:0] DataBus; 라고 선언된 경우
-
-DataBus[3]; → 1비트 선택
-
-DataBus[5:2]; → 범위 선택 가능
-
-Operators
-Relational Operators
-
-<, >, <=, >=
-
-X나 Z가 포함되면 결과는 X
-
-===, !== → 비트 단위 비교 (예: 0xx0 === 0xx0 → 1)
-
-==, != → 값 비교 (X나 Z가 있으면 X)
-
-Bitwise Operators
-(AND, OR, XOR 등)
-
-Shift Operators
-
-<<, >>
-
-예: regA << 3 → regA의 비트들이 왼쪽으로 3칸 이동, 빈 곳은 0
-
->>> → sign 유지하면서 shift
-
-Continuous Assignment
-논리 합성 안 됨
-
-예:
-
-verilog
-복사
-편집
-assign #3 ChipOut = Switch;
-#3 → delay 3
-
-ChipOut → target은 net만 가능
-
-우변은 아무거나 가능
-
-Conditional Assignment
-논리 합성 가능
-
-Delay
-#t 방식으로 사용
-
-실제 회로에서 딜레이를 원하면 회로를 합성해야 함 → 시뮬레이션용
-
-예:
-
-1로 바뀌어서 assign하려다가 delay 동안 우변 값이 바뀌면 assign 안 됨
+- **한계점**
+    
+    당초 계획 하였던 부분에 대해 모두 구현은 성공하였으나,
+    전력 소모량이 높아 큰 사이즈의 배터리의 필요, 센서의 잦은 고장 등의 이유로 모듈의 크기를 줄이는데 실패하였고, 발표 당일 역시 센서의 고장으로 완제품 전시에 어려움이 있었다.
+    
+    이런 한계점은 12개월령 미만의 신생아를 타겟으로 제공하는 솔루션으로서는 매우 치명적,
+    다음 해 진행된 AquaMonitor 프로젝트에서는 이러한 모듈 크기의 한계점 극복을 위해 개발보드 대신 칩과 직접 디자인한 원형 PCB를 이용하였다.

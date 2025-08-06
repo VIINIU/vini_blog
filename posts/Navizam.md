@@ -3,7 +3,7 @@ title: Verilog Basics
 date: 2025-05-22
 category: Esp32
 project: Navizam
-author: VINI
+overview: true
 ---
 
 # 분리수면 매니저 나비잠

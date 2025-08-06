@@ -1,36 +1,71 @@
----
-title: AquaMonitor
-date: "2024-10-13"
-author: VINI
-category: ESP32
-project: AquaMonitor
-thumbnail: caramel_୨୧-removebg-preview.png
----
-
-## AquaMonitor 프로젝트 소개
-**AquaMonitor**는 사용자가 음용수를 섭취할 때 발생하는 무게 변화를 기반으로 음용수 섭취량을 측정하고 기록하는 서비스입니다.  
-측정 모듈과 텀블러, 코스터로 구성되며, 측정 모듈을 각각 텀블러 하단부와 코스터 하단부에 부착하여 사용할 수 있습니다.
+# Aquamonitor
 
 ---
 
-## 하드웨어
-텀블러 하단부의 원형 부분에 이질감 없이 부착할 수 있도록 **Fusion 360**을 활용하여 원형 PCB를 디자인하였습니다.  
-Uno에 사용되는 **Atmega328p** 칩과 APP과 BLE 통신을 위해 **HM-10 블루투스 통신 모듈**을 부착하였습니다.
+## ✔ **Aquamonitor**란
 
 ---
 
-## 어플리케이션
-- 측정 모듈과 BLE로 연결하여 사용할 수 있으며, 측정한 데이터를 편집하거나 음료 종류를 수정할 수 있습니다.
-- 설정한 음료 종류에 따라 **수분 함량**을 고려하여 수분 섭취량에 반영합니다.
-- **구글 헬스커넥트 API**를 이용하여 기존 안드로이드 건강관리 어플리케이션에서도 업데이트된 수분 섭취량을 확인할 수 있습니다.
-- 사용자의 **연령, 성별, 수유 여부**에 따라 맞춤 수분 섭취 권장량이 업데이트됩니다.
+![3.jpg](/images/aquamonitor/3.jpg)
+
+- **사용자가 음용수를 섭취할 때 발생하는 무게변화**를 기반으로 **음용수 섭취량을 측정**하고 기록하는
+**조립형 텀블러 / 코스터**
+- **칩셋**과 **직접 디자인한 원형 PCB**만 활용하여 모듈 경량화
+- **Atmega-128p 칩셋**과 **C/C++**
+- **중앙대학교 컴퓨터 하드웨어 동아리 CECOM** 내에서 진행된 프로젝트
+
+### 🏆 수상 실적
 
 ---
 
-## 이미지
-![AquaMonitor Image 1](/aquamonitor/1.jpg)
-![AquaMonitor Image 2](/aquamonitor/2.jpg)
-![AquaMonitor Image 3](/aquamonitor/3.jpg)
-![AquaMonitor Image 4](/aquamonitor/4.jpg)
-![AquaMonitor Image 5](/aquamonitor/5.jpg)
-![AquaMonitor Image 6](/aquamonitor/6.jpg)
+- 2024 중앙대학교 공학교육혁신센터 주최 다학제 융합 IoT 캡스톤 디자인 경진대회 아이디어 평가회 우수상 수상 (본선 진출)
+
+### ⚙ 관련 기술
+
+---
+
+- **HW**
+    - **Atmega-128p**, micro loadcell, BlueTooth(BLE), Autodesk Fusion(PCB Layout(former Eagle))
+- **SW**
+    - 안드로이드 스튜디오, **C/C++**
+- **Package Modeling**
+    - Autodesk Inventor
+
+### 📄 관련 자료
+
+---
+
+| **Application Github** | https://github.com/yymin1022/AquaMonitor_Android |
+| --- | --- |
+
+![1.jpg](/images/aquamonitor/1.jpg)
+
+![3.jpg](/images/aquamonitor/3.jpg)
+
+![2.jpg](/images/aquamonitor/2.jpg)
+
+![6.jpg](/images/aquamonitor/6.jpg)
+
+![4.jpg](/images/aquamonitor/4.jpg)
+
+![5.jpg](/images/aquamonitor/5.jpg)
+
+### 결과물 및 한계점
+
+---
+
+**HW 결과물**
+
+![자석을 부착하여 함께 제공되는 텀블러와 붙여서 활용할 수 있도록 디자인](/images/aquamonitor/20241002_182217.jpg)
+
+자석을 부착하여 함께 제공되는 텀블러와 붙여서 활용할 수 있도록 디자인
+
+![함께 제공된 텀블러가 아닌 다른 텀블러와 함께 코스터로 활용하는 모습](/images/aquamonitor/20240913_145006.jpg)
+
+함께 제공된 텀블러가 아닌 다른 텀블러와 함께 코스터로 활용하는 모습
+
+**발표 당일 부스 설명 자료**
+
+![20241002_172741.jpg](/images/aquamonitor/20241002_172741.jpg)
+
+![20241002_172747.jpg](/images/aquamonitor/20241002_172747.jpg)

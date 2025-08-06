@@ -1,3 +1,13 @@
+---
+title: Aquamonitor
+date: 2024-10-13
+category: ESP32
+project: Aquamonitor
+overview: true
+thumbnail: /images/aquamonitor/3.jpg
+---
+
+
 # Aquamonitor
 
 ---

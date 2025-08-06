@@ -1,8 +1,8 @@
 ---
 title: Verilog Basics
 date: 2025-05-22
-category: Verilog
-project: Verilog Study Group
+category: Esp32
+project: Navizam
 author: VINI
 ---
 

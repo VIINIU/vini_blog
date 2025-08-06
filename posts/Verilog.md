@@ -122,3 +122,60 @@ author: VINI
 reg [7:0] DataBus;
 DataBus[3]     // 1비트 선택
 DataBus[5:2]   // 범위 선택
+
+Bit-Select & Part-Select
+
+reg [7:0] DataBus; 라고 선언된 경우
+
+DataBus[3]; → 1비트 선택
+
+DataBus[5:2]; → 범위 선택 가능
+
+Operators
+Relational Operators
+
+<, >, <=, >=
+
+X나 Z가 포함되면 결과는 X
+
+===, !== → 비트 단위 비교 (예: 0xx0 === 0xx0 → 1)
+
+==, != → 값 비교 (X나 Z가 있으면 X)
+
+Bitwise Operators
+(AND, OR, XOR 등)
+
+Shift Operators
+
+<<, >>
+
+예: regA << 3 → regA의 비트들이 왼쪽으로 3칸 이동, 빈 곳은 0
+
+>>> → sign 유지하면서 shift
+
+Continuous Assignment
+논리 합성 안 됨
+
+예:
+
+verilog
+복사
+편집
+assign #3 ChipOut = Switch;
+#3 → delay 3
+
+ChipOut → target은 net만 가능
+
+우변은 아무거나 가능
+
+Conditional Assignment
+논리 합성 가능
+
+Delay
+#t 방식으로 사용
+
+실제 회로에서 딜레이를 원하면 회로를 합성해야 함 → 시뮬레이션용
+
+예:
+
+1로 바뀌어서 assign하려다가 delay 동안 우변 값이 바뀌면 assign 안 됨

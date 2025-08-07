@@ -16,7 +16,7 @@ pinned: true
 
 | Version | What I Did | Github |
 | --- | --- | --- |
-| 1.0 | **PM(Project Manager), 3D-Modeling, ESP-32 CAM, Bluetooth** | **None** |
+| 1.0 | **PM, 3D-Modeling, ESP-32 CAM, Bluetooth** | **None** |
 | 2.0 | **PM, ESP32 Trigger** | https://github.com/yymin1022/CECOM4CUT |
 
 ## ✔ CECOM4CUT 이란
@@ -45,5 +45,4 @@ pinned: true
 **Version2의 작동 결과(왼쪽) 과 디바이스 구성 (오른쪽)**
 
 ![cecom4cut_example.jpg](/images/cecom4cut/cecom4cut_example.jpg)
-
 ![cecom4cut_device.jpg](/images/cecom4cut/cecom4cut_device.jpg)

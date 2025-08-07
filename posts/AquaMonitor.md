@@ -16,6 +16,7 @@ thumbnail: aquamonitor/1.jpg
 
 ---
 
+
 ![3.jpg](/images/aquamonitor/3.jpg)
 
 - **사용자가 음용수를 섭취할 때 발생하는 무게변화**를 기반으로 **음용수 섭취량을 측정**하고 기록하는

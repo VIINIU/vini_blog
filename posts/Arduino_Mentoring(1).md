@@ -30,14 +30,22 @@ CECOM의 '24-2 운영진 첫회의에서 CECOM의 앞으로의 진행 방향에 
 --- 
 #### 💻 아두이노 멘토링 1회차 (9/29)
 - **간단한 자기소개 시간**
-<img src="/images/AM/AM1.jpg"  width="49%"/>
-<img src="/images/AM/AM2.jpg"  width="49%"/>
-<img src="/images/AM/AM3.jpg"  width="49%"/>
-<img src="/images/AM/AM4.jpg"  width="49%"/>
-<img src="/images/AM/AM5.jpg"  width="49%"/>
-<img src="/images/AM/AM6.jpg"  width="49%"/>
-<img src="/images/AM/AM7.jpg"  width="49%"/>
-<img src="/images/AM/AM8.jpg"  width="49%"/>
+<p>
+    <img src="/images/AM/AM1.jpg"  width="49%"/>
+    <img src="/images/AM/AM2.jpg"  width="49%"/>
+</p>
+<p>
+    <img src="/images/AM/AM3.jpg"  width="49%"/>
+    <img src="/images/AM/AM4.jpg"  width="49%"/>
+</p>
+<p>
+    <img src="/images/AM/AM5.jpg"  width="49%"/>
+    <img src="/images/AM/AM6.jpg"  width="49%"/>
+</p>
+<p>
+    <img src="/images/AM/AM7.jpg"  width="49%"/>
+    <img src="/images/AM/AM8.jpg"  width="49%"/>
+</p>
 
 - **아두이노 멘토링이 필수여야 한다고 생각했던 이유**
     - 토이 프로젝트 경험을 쌓아주기 위함
@@ -93,12 +101,19 @@ CECOM의 '24-2 운영진 첫회의에서 CECOM의 앞으로의 진행 방향에 
 <br/> 
 
 #### 💻 아두이노 멘토링 2회차 (10/7)
-<img src="/images/AM/AM12.jpg"  width="49%"/>
-<img src="/images/AM/AM13.jpg"  width="49%"/>
-<img src="/images/AM/AM14.jpg"  width="49%"/>
-<img src="/images/AM/AM15.jpg"  width="49%"/>
-<img src="/images/AM/AM16.jpg"  width="49%"/>
-<img src="/images/AM/AM17.jpg"  width="49%"/>
+
+<p>
+    <img src="/images/AM/AM12.jpg"  width="49%"/>
+    <img src="/images/AM/AM13.jpg"  width="49%"/>
+</p>
+<p>
+    <img src="/images/AM/AM14.jpg"  width="49%"/>
+    <img src="/images/AM/AM15.jpg"  width="49%"/>
+</p>
+<p>
+    <img src="/images/AM/AM16.jpg"  width="49%"/>
+    <img src="/images/AM/AM17.jpg"  width="49%"/>
+</p>
 
 
 - **GPIO**

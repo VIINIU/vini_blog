@@ -6,6 +6,7 @@ category: Raspberry Pi, ESP32
 project: CECOM4CUT
 overview: true
 thumbnail: lasr.jpg
+pinned: true
 ---
 
 

@@ -4,7 +4,7 @@ date: 2024-10-13
 category: ESP32
 project: Aquamonitor
 overview: true
-thumbnail: aquamonitor/3.jpg
+thumbnail: aquamonitor/1.jpg
 ---
 
 

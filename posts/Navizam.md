@@ -1,6 +1,6 @@
 ---
 title: 분리수면 매니저 나비잠
-date: 2025-05-22
+date: 2023-10-22
 category: Esp32
 project: Navizam
 overview: true

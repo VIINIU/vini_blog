@@ -12,18 +12,18 @@ project: Mentoring
 <br/> 
 
 #### 💻 아두이노 멘토링 3회차
-<p>
+ <div class="img-row">
 <img src="/images/AM/AM19.jpg"  width="49%"/>
 <img src="/images/AM/AM20.jpg"  width="49%"/>
-</p>
-<p>
+</div>
+ <div class="img-row">
 <img src="/images/AM/AM21.jpg"  width="49%"/>
 <img src="/images/AM/AM22.jpg"  width="49%"/>
-</p>
-<p>
+</div>
+ <div class="img-row">
 <img src="/images/AM/AM23.jpg"  width="49%"/>
 <img src="/images/AM/AM24.jpg"  width="49%"/>
-</p>
+</div>
 - **모터 종류 소개**
 
 - 간단한 하드웨어 프로젝트 시 사용하는 모터는 주로 두가지
@@ -53,26 +53,26 @@ project: Mentoring
     
 #### 💻 아두이노 멘토링 4회차, 5회차
 
-<p>
+ <div class="img-row">
 <img src="/images/AM/AM25.jpg"  width="49%"/>
 <img src="/images/AM/AM26.jpg"  width="49%"/>
-</p>
-<p>
+</div>
+ <div class="img-row">
 <img src="/images/AM/AM27.jpg"  width="49%"/>
 <img src="/images/AM/AM28.jpg"  width="49%"/>
-</p>
-<p>
+</div>
+ <div class="img-row">
 <img src="/images/AM/AM29.jpg"  width="49%"/>
 <img src="/images/AM/AM30.jpg"  width="49%"/>
-</p>
-<p>
+</div>
+ <div class="img-row">
 <img src="/images/AM/AM31.jpg"  width="49%"/>
 <img src="/images/AM/AM32.jpg"  width="49%"/>
-</p>
-<p>
+</div>
+ <div class="img-row">
 <img src="/images/AM/AM33.jpg"  width="49%"/>
 <img src="/images/AM/AM35.jpg"  width="49%"/>
-</p>
+</div>
 
 - **택트 스위치의 사용방법**
 

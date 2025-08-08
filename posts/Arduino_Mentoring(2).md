@@ -24,6 +24,7 @@ project: Mentoring
 <img src="/images/AM/AM23.jpg"  width="49%"/>
 <img src="/images/AM/AM24.jpg"  width="49%"/>
 </div>
+
 - **모터 종류 소개**
 
 - 간단한 하드웨어 프로젝트 시 사용하는 모터는 주로 두가지

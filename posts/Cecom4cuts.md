@@ -43,6 +43,7 @@ pinned: true
 ---
 
 **Version2의 작동 결과(왼쪽) 과 디바이스 구성 (오른쪽)**
-
-![cecom4cut_example.jpg](/images/cecom4cut/cecom4cut_example.jpg)
-![cecom4cut_device.jpg](/images/cecom4cut/cecom4cut_device.jpg)
+ <div class="img-row">
+<img src="/images/cecom4cut/cecom4cut_example.jpg"  width="49%"/>
+<img src="/images/cecom4cut/cecom4cut_device.jpg"  width="49%"/>
+</div>

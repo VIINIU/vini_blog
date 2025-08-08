@@ -37,20 +37,20 @@ tag: Personal
 
 ## 📁 Projects
 
-- **[Aquamonitor](https://viniu.info/post/AquaMonitor)**
+- **[🔗Aquamonitor](https://viniu.info/post/AquaMonitor)**
   - **2024.05 - 2024.10 | PCB 레이아웃, 하드웨어 개발, 3D 모델링**
   - **Description**
     - 사용자가 음용수를 섭취할 때 발생하는 무게변화를 기반으로 음용수 섭취량을 측정하고 기록하는 서비스
     - PCB 제작을 통해 모듈 무게 경량화
     - 2024 교내 공학교육혁신센터 주최 다학제 융합 IoT 캡스톤 디자인 경진대회 아이디어 평가회 우수상
 
-- **[CECOM4CUT](https://viniu.info/post/Cecom4cuts)**
+- **[🔗CECOM4CUT](https://viniu.info/post/Cecom4cuts)**
   - **2023.09 - 2024.03 | PM, 하드웨어 개발**
   - **Description**
     - ESP32를 이용하여 사진 활영 후 JPEG to 1bit BMP으로 디더링 및 형식 변환, 블루투스 Thermal Printer(영수증 출력기)에 연결하여 사진을 뽑아주는 프로젝트
     - ESP32를 활용하여 버전 1 개발 후, Raspberry PI 활용 버전 2 개발
 
-- **[나비잠](https://viniu.info/post/Navizam)**
+- **[🔗나비잠](https://viniu.info/post/Navizam)**
   - **2023.05 - 2023.10 | 하드웨어 개발 (UWB 비콘), APP 개발 일부**
   - **Description**
     - UWB 비콘을 활용한 실내에서의 아이 움직임 트래킹, 분리 수면 시 질식사 방지를 위한 생체 신호 수집 · 분석
@@ -72,7 +72,7 @@ tag: Personal
 ## 🛠 Tools, Languages & OS
 
 - **C, C++**
-  - ESP32 기반 프로젝트([Aquamonitor](https://viniu.info/post/AquaMonitor), [나비잠](https://viniu.info/post/Navizam), 비 IoT 가전제품작동완료 알리미, [CECOM4CUT](https://viniu.info/post/Cecom4cuts))
+  - ESP32 기반 프로젝트([🔗Aquamonitor](https://viniu.info/post/AquaMonitor), [🔗나비잠](https://viniu.info/post/Navizam), 비 IoT 가전제품작동완료 알리미, [🔗CECOM4CUT](https://viniu.info/post/Cecom4cuts))
 
 - **Python**
   - 앱 · 웹 크롤링 및 업무자동화 프로그램 기획 · 개발 · 배포 · 유지보수
@@ -81,17 +81,17 @@ tag: Personal
   - Raspberry PI 활용
 
 - **Autodesk Inventor**
-  - [Aquamonitor](https://viniu.info/post/AquaMonitor), [나비잠](https://viniu.info/post/Navizam), 비 IoT 가전제품작동완료 알리미, [CECOM4CUT](https://viniu.info/post/Cecom4cuts) 패키징 디자인
+  - [🔗Aquamonitor](https://viniu.info/post/AquaMonitor), [🔗나비잠](https://viniu.info/post/Navizam), 비 IoT 가전제품작동완료 알리미, [🔗CECOM4CUT](https://viniu.info/post/Cecom4cuts) 패키징 디자인
 
 - **Autodesk Fusion**
-  - [Aquamonitor](https://viniu.info/post/AquaMonitor) PCB Layout Design
+  - [🔗Aquamonitor](https://viniu.info/post/AquaMonitor) PCB Layout Design
 
 - **Blender**
-  - [인체 상반 모형 모델링](https://viniu.info/post/Ssomaek)
+  - [🔗인체 상반 모형 모델링](https://viniu.info/post/Ssomaek)
 
 - **Adobe Illustrator**
   - 동아리 홍보물 제작 및 판촉물 제작
 
 - **Figma**
-  - [개인 블로그](https://viniu.info) 및 [중앙대학교 컴퓨터 하드웨어 중앙동아리 홈페이지](https://cecom.dev) 디자인 디자인 경험
-  - [Aquamonitor](https://viniu.info/post/AquaMonitor), [나비잠](https://viniu.info/post/Navizam) 모바일 앱 디자인
+  - [🔗개인 블로그](https://viniu.info) 및 [🔗중앙대학교 컴퓨터 하드웨어 중앙동아리 홈페이지](https://cecom.dev) 디자인 디자인 경험
+  - [🔗Aquamonitor](https://viniu.info/post/AquaMonitor), [🔗나비잠](https://viniu.info/post/Navizam) 모바일 앱 디자인

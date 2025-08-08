@@ -5,9 +5,7 @@ categories: About Me
 tag: Personal
 --- 
 
-# 분리수면 매니저 나비잠
-
-## About Me
+# About Me
 ---
 
 #### **📁 Projects**

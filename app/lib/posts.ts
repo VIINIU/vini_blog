@@ -14,13 +14,13 @@ function extractPreview(content: string, length: number = 100): string {
   return text.slice(0, length) + (text.length > length ? "..." : "");
 }
 
-const GITHUB_POSTS_URL = "https://raw.githubusercontent.com/VIINIU/vini_blog/main/posts/";
-const GITHUB_IMAGES_URL = "https://raw.githubusercontent.com/VIINIU/vini_blog/main/images/";
+const GITHUB_POSTS_URL = "https://raw.githubusercontent.com/VIINIU/vini_blog_db/main/posts/";
+const GITHUB_IMAGES_URL = "https://raw.githubusercontent.com/VIINIU/vini_blog_db/main/images/";
 const thumbnailUrl = GITHUB_IMAGES_URL + "default_thumbnail.png";
 
 export async function getAllPosts() {
   const res = await fetch(
-    "https://api.github.com/repos/VIINIU/vini_blog/contents/posts",
+    "https://api.github.com/repos/VIINIU/vini_blog_db/contents/posts",
     { next: { revalidate: 60 * 60 } }
   );
   if (!res.ok) throw new Error("Failed to fetch posts");

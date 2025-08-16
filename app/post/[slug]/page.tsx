@@ -5,8 +5,8 @@ import slugify from "slugify";
 import SetRightBarClient from './SetRightBarClient'; 
 
 let headingIndex = 0; 
-const GITHUB_POSTS_URL = "https://raw.githubusercontent.com/VIINIU/vini_blog/main/posts/";
-const GITHUB_IMAGE_BASE = "https://raw.githubusercontent.com/VIINIU/vini_blog/main/images/";
+const GITHUB_POSTS_URL = "https://raw.githubusercontent.com/VIINIU/vini_blog_db/main/posts/";
+const GITHUB_IMAGE_BASE = "https://raw.githubusercontent.com/VIINIU/vini_blog_db/main/images/";
 
 export async function generateStaticParams() {
   const posts = await getAllPosts();

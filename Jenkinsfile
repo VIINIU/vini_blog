@@ -5,7 +5,7 @@ pipeline {
         stage("Set Variable") {
             steps {
                 script {
-                    DOCKERHUB_CREDENTIAL = "dockerhub-vin0iu595"
+                    DOCKERHUB_CREDENTIAL = "dockerhub-viniu595"
                     DOCKER_IMAGE_NAME = "vini_blog"
                     DOCKER_IMAGE_STORAGE = "viniu595"
                     DOCKER_IMAGE_TAG = "release-1"

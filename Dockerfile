@@ -1,4 +1,4 @@
-FROM node:16.17.0 AS builder
+FROM node:24.3.0 AS builder
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-FROM node:16.17.0
+FROM node:24.3.0
 WORKDIR /app
 
 ENV NODE_ENV production

@@ -1,0 +1,40 @@
+{
+  "name": "vini_blog",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@mdx-js/loader": "^3.1.0",
+    "@next/mdx": "^15.4.1",
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "@types/prismjs": "^1.26.5",
+    "classnames": "^2.5.1",
+    "flubber": "^0.4.2",
+    "framer-motion": "^12.23.3",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^0.539.0",
+    "marked": "^16.1.2",
+    "next": "^15.4.1",
+    "next-mdx-remote": "^5.0.0",
+    "next-mdx-remote-client": "^2.1.2",
+    "prismjs": "^1.30.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "rehype-highlight": "^7.0.2",
+    "remark-gfm": "^4.0.1",
+    "slugify": "^1.6.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^24.0.14",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

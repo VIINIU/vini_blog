@@ -9,6 +9,7 @@ const nextConfig = {
   experimental: {
     allowedDevOrigins: ['https://vini-blog.dev-lr.com'],
   },
+  output : 'standalone'
 };
 
 module.exports = withMDX(nextConfig);

@@ -114,7 +114,6 @@ title {
 }
 
 .fade-edge-mask {
-  /* Top to center */
   -webkit-mask-image: 
     linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%),
     linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
@@ -163,25 +162,25 @@ ul.custom-bullet li::before {
 
 @layer components {
   .prose {
-    @apply text-sm font-medium text-black;
+    @apply text-xs font-medium text-black;
     font-family: var(--font-gothic);
     overflow-wrap: break-word;
     word-break: break-word;
-    line-height: 1.8; /* 전체 줄 간격 좀 넓히기 */
+    line-height: 1.6; /* 전체 줄 간격 좀 넓히기 */
   }
 
   .prose h1 {
-    @apply text-xl xl:text-2xl pt-3 text-center text-black;
+    @apply text-lg xl:text-2xl pt-3 text-center text-black;
     font-family: var(--font-dos);
   }
 
   .prose h2 {
-    @apply text-xl pt-5 pb-2 text-center text-black;
+    @apply text-base pt-5 pb-2 text-center text-black;
     font-family: var(--font-dos);
   }
 
   .prose h3 {
-    @apply text-xl pt-5 pb-2 font-medium text-center text-black;
+    @apply text-base pt-5 pb-2 font-medium text-center text-black;
     font-family: var(--font-dos);
   }
 
@@ -227,46 +226,25 @@ ul.custom-bullet li::before {
 
   .prose ul {
     @apply list-none pl-2 relative;
-    padding: 2%;
   }
 
   .prose ul li {
-    @apply relative pl-4;
-    line-height: 1.2rem; /* 직접 px/rem 지정 */
-    min-height: 1.5rem;
+    position: relative;         /* ::before가 li 기준으로 위치 */
+    padding-left: 2rem;         /* dot + 텍스트 간격 */
   }
 
   .prose ul li::before {
     content: "";
-    position: absolute;
+    position: absolute;         /* li 기준 절대 위치 */
     left: 0;
-    top: 0.2rem; /* 텍스트 라인 기준으로 정렬 */
-    width: 10px;
-    height: 10px;
+    top: 1rem;                  /* p padding-top과 동일하게 맞춤 */
+    width: 15px;
+    height: 15px;
     background-image: url('/images/fav.png');
     background-size: cover;
     background-repeat: no-repeat;
   }
   
-  .prose li p {
-    padding-top: 0;
-    padding-bottom: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .prose ul li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.2rem;
-    width: 10px;
-    height: 10px;
-    background-image: url('/images/fav.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-
   .prose table {
     @apply w-full table-auto border text-center border-black;
     max-width: 100%;

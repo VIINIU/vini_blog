@@ -10,12 +10,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="flex flex-col text-black font-dos bg-background h-fit">
-        <RightBarProvider> {/* Context Provider로 감싸기 */}
-
-          {/* 헤더 fixed + 높이 64px (h-16) */}
+        <RightBarProvider> 
           <Header />
-
-          {/* 헤더 높이만큼 padding top 줘서 헤더와 겹치지 않도록 */}
           <div className="pt-16 flex flex-col gap-[20px] min-h-screen w-full items-center">
             <div className="flex flex-row justify-center h-full w-full gap-[3%] px-[2%]">
               <div className="hidden md:flex flex-col min-w-[20%] h-fit justify-center items-center">

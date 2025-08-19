@@ -270,7 +270,10 @@ ul.custom-bullet li::before {
   }
   
   .prose br {
-    @apply px-1
+    @apply py-1
+  }
+  .prose p {
+    @apply py-3
   }
 }
 

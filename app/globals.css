@@ -163,7 +163,7 @@ ul.custom-bullet li::before {
 
 @layer components {
   .prose {
-    @apply text-xs font-medium text-black;
+    @apply text-sm font-medium text-black;
     font-family: var(--font-gothic);
     overflow-wrap: break-word;
     word-break: break-word;
@@ -205,6 +205,26 @@ ul.custom-bullet li::before {
     margin-bottom: 0.75rem;
   }
 
+  
+  .prose hr {
+    border: none; /* 기본 hr 선 없애기 */
+    text-align: start;
+    margin: 0.5rem 0;
+    width: 100%;
+    position: relative;
+    height: 1.5rem; /* 높이 조절 */
+  }
+
+  .prose hr::before {
+    content: "｡·.☆.｡˚౨ৎ˚｡.☆.·｡";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    color: black;
+    letter-spacing: 0.1rem; 
+  }
+
   .prose ul {
     @apply list-none pl-2 relative;
     padding: 2%;
@@ -212,8 +232,27 @@ ul.custom-bullet li::before {
 
   .prose ul li {
     @apply relative pl-4;
-    line-height: 1.5rem;
+    line-height: 1.2rem; /* 직접 px/rem 지정 */
     min-height: 1.5rem;
+  }
+
+  .prose ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.2rem; /* 텍스트 라인 기준으로 정렬 */
+    width: 10px;
+    height: 10px;
+    background-image: url('/images/fav.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .prose li p {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   .prose ul li::before {

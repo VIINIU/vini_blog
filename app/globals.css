@@ -163,10 +163,11 @@ ul.custom-bullet li::before {
 
 @layer components {
   .prose {
-    @apply text-xs font-medium leading-relaxed text-black;
-    font-family: var(--font-gothic); 
+    @apply text-xs font-medium text-black;
+    font-family: var(--font-gothic);
     overflow-wrap: break-word;
     word-break: break-word;
+    line-height: 1.8; /* 전체 줄 간격 좀 넓히기 */
   }
 
   .prose h1 {
@@ -189,23 +190,19 @@ ul.custom-bullet li::before {
     font-family: var(--font-dos);
   }
 
-  .prose hr {
-    border: none; /* 기본 hr 선 없애기 */
-    text-align: start;
-    margin: 0.5rem 0;
-    width: 100%;
-    position: relative;
-    height: 1.5rem; /* 높이 조절 */
+  .prose p {
+    @apply text-black;
+    padding-top: 1rem;    /* py-4 정도 */
+    padding-bottom: 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
-  .prose hr::before {
-    content: "｡·.☆.｡˚౨ৎ˚｡.☆.·｡";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.7rem;
-    color: black;
-    letter-spacing: 0.1rem; 
+  .prose br {
+    display: block;
+    content: "";
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
   }
 
   .prose ul {
@@ -215,7 +212,7 @@ ul.custom-bullet li::before {
 
   .prose ul li {
     @apply relative pl-4;
-    line-height: 1.2rem; /* 직접 px/rem 지정 */
+    line-height: 1.5rem;
     min-height: 1.5rem;
   }
 
@@ -223,7 +220,7 @@ ul.custom-bullet li::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 0.2rem; /* 텍스트 라인 기준으로 정렬 */
+    top: 0.2rem;
     width: 10px;
     height: 10px;
     background-image: url('/images/fav.png');
@@ -256,29 +253,24 @@ ul.custom-bullet li::before {
   .prose code {
     @apply font-mono;
   }
+
   .prose :not(pre) > code {
     @apply bg-gray-100 text-pink-700 px-1 py-0.5 rounded;
   }
+
   .prose a {
     @apply text-[#525252] font-semibold transition-colors duration-200;
   }
+
   .prose a:hover {
-    @apply text-[#96c2f8] font-semibold ; 
+    @apply text-[#96c2f8] font-semibold;
   }
+
   .prose img {
     padding: 4%;
   }
-  
-  .prose br {
-    @apply py-1
-  }
-  
-  .prose p {
-  @apply pt-0-3;
-  margin-top: 0;
-  margin-bottom: 0;
 }
-}
+
 
 .img-row {
   display: flex;

@@ -238,7 +238,7 @@ ul.custom-bullet li::before {
     position: relative;         /* ::before가 li 기준으로 위치 */
     padding-left: 2rem; 
     padding-top : 0.5rem;
-    padding-bottom : 1rem;
+    padding-bottom : 0.5rem;
   }
   .prose ul li p {
     padding-top: 0;   

@@ -191,8 +191,8 @@ ul.custom-bullet li::before {
 
   .prose p {
     @apply text-black;
-    padding-top: 1rem;    /* py-4 정도 */
-    padding-bottom: 1rem;
+    padding-top: 0.5rem;    /* py-4 정도 */
+    padding-bottom: 0.5rem;
     margin-top: 0;
     margin-bottom: 0;
   }
@@ -228,23 +228,37 @@ ul.custom-bullet li::before {
     @apply list-none pl-2 relative;
   }
 
+  .prose ul p {
+    padding-top: 0;    /* py-4 정도 */
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
   .prose ul li {
     position: relative;         /* ::before가 li 기준으로 위치 */
-    padding-left: 2rem;         /* dot + 텍스트 간격 */
+    padding-left: 2rem; 
+    padding-top : 0.5rem;
+    padding-bottom : 1rem;
+  }
+  .prose ul li p {
+    padding-top: 0;   
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 1rem;
   }
 
   .prose ul li::before {
     content: "";
     position: absolute;         /* li 기준 절대 위치 */
     left: 0;
-    top: 1rem;                  /* p padding-top과 동일하게 맞춤 */
-    width: 15px;
-    height: 15px;
+    top: 0.5rem;                  /* p padding-top과 동일하게 맞춤 */
+    width: 10px;
+    height: 10px;
     background-image: url('/images/fav.png');
     background-size: cover;
     background-repeat: no-repeat;
   }
-  
+
   .prose table {
     @apply w-full table-auto border text-center border-black;
     max-width: 100%;
@@ -284,7 +298,7 @@ ul.custom-bullet li::before {
   }
 
   .prose img {
-    padding: 4%;
+    padding: 2%;
   }
 }
 

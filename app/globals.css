@@ -272,9 +272,12 @@ ul.custom-bullet li::before {
   .prose br {
     @apply py-1
   }
+  
   .prose p {
-    @apply py-3
-  }
+  @apply pt-0-3;
+  margin-top: 0;
+  margin-bottom: 0;
+}
 }
 
 .img-row {

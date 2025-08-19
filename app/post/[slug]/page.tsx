@@ -75,7 +75,10 @@ export default function PostPage() {
         return `<h${depth} id="${slug}">${text}</h${depth}>`;
       };
 
-      marked.setOptions({ renderer });
+      marked.setOptions({ 
+        renderer,
+        breaks: true,  
+      });
 
       const htmlContent = await marked(content);  
       const hasH4 = headings.some(h => h.depth === 4);

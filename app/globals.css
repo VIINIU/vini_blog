@@ -251,7 +251,7 @@ ul.custom-bullet li::before {
     content: "";
     position: absolute;         /* li 기준 절대 위치 */
     left: 0;
-    top: 1rem;                  /* p padding-top과 동일하게 맞춤 */
+    top: 0.7rem;                  /* p padding-top과 동일하게 맞춤 */
     width: 10px;
     height: 10px;
     background-image: url('/images/fav.png');

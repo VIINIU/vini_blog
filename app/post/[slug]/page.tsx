@@ -105,10 +105,14 @@ export default function PostPage() {
   return (
     <>
       <div className="flex flex-row min-h-screen h-fit w-full items-center justify-center gap-[3%] pb-20">
-        <div className="flex flex-col w-full max-w-3xl select-none items-start text-black text-xs sm:text-base h-fit">
+        <div className="flex flex-col w-full max-w-3xl items-start text-black text-xs sm:text-base h-fit">
           <h1 className="text-2xl xl:text-4xl w-full font-dos pb-1 text-center">{title}</h1>
-          <div className="text-sm select-text text-center w-full font-dos xl:text-base px-1 pb-5">{date}</div>
-          <article className="prose" dangerouslySetInnerHTML={{ __html: content }} />
+          <div className="text-sm text-center w-full font-dos xl:text-base px-1 pb-5">{date}</div>
+          <article
+            className="prose"
+            style={{ userSelect: "text" }}
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
         </div>
       </div>
       <SetRightBarClient floors={floors} />

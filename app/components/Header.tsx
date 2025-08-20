@@ -20,7 +20,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header>
+    <header className=" select-none ">
       {/* 모바일 헤더 */}
       <div
         className={`fixed top-0 left-0 right-0 h-14 z-50 flex items-center justify-between px-4 transition-colors duration-300 sm:hidden ${

@@ -22,7 +22,7 @@ type PostBoxProps = {
 export default function PostBox({ posts = [] }: PostBoxProps) {
   const router = useRouter();
 
-  if (!posts.length) return <p className="text-gray-500 h-full text-sm text-center">포스트가 없습니다.</p>;
+  if (!posts.length) return <p className="text-gray-500 h-full text-sm text-center">이 조건에 해당하는 포스트가 없어용ㅠㅠ</p>;
 
   return (
     <div>

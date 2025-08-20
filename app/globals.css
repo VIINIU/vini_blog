@@ -96,12 +96,12 @@ title {
 
 
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE, Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none;  
+  scrollbar-width: none;     
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none; 
 }
 
 .mask-horizontal-fade {
@@ -139,12 +139,12 @@ title {
 }
 
 ul.custom-bullet {
-  list-style: none; /* 기본 불릿 제거 */
+  list-style: none; 
 }
 
 ul.custom-bullet li {
   position: relative;
-  padding-left: 20px; /* bullet과 텍스트 간격 */
+  padding-left: 20px;
 }
 
 ul.custom-bullet li::before {
@@ -153,8 +153,8 @@ ul.custom-bullet li::before {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 15px;  /* bullet 크기 */
-  height: 15px; /* bullet 크기 */
+  width: 15px; 
+  height: 15px; 
   background-image: url('/images/fav.png');
   background-size: cover;
   background-repeat: no-repeat;
@@ -166,7 +166,7 @@ ul.custom-bullet li::before {
     font-family: var(--font-gothic);
     overflow-wrap: break-word;
     word-break: break-word;
-    line-height: 1.6; /* 전체 줄 간격 좀 넓히기 */
+    line-height: 1.6;
   }
 
   .prose h1 {
@@ -191,7 +191,7 @@ ul.custom-bullet li::before {
 
   .prose p {
     @apply text-black;
-    padding-top: 0.5rem;    /* py-4 정도 */
+    padding-top: 0.5rem;  
     padding-bottom: 0.5rem;
     margin-top: 0;
     margin-bottom: 0;
@@ -206,12 +206,12 @@ ul.custom-bullet li::before {
 
   
   .prose hr {
-    border: none; /* 기본 hr 선 없애기 */
+    border: none;
     text-align: start;
     margin: 0.5rem 0;
     width: 100%;
     position: relative;
-    height: 1.5rem; /* 높이 조절 */
+    height: 1.5rem; 
   }
 
   .prose hr::before {
@@ -229,13 +229,13 @@ ul.custom-bullet li::before {
   }
 
   .prose ul p {
-    padding-top: 0;    /* py-4 정도 */
+    padding-top: 0; 
     padding-bottom: 0;
     margin-top: 0;
     margin-bottom: 0;
   }
   .prose ul li {
-    position: relative;         /* ::before가 li 기준으로 위치 */
+    position: relative;        
     padding-left: 2rem; 
     padding-top : 0.5rem;
     padding-bottom : 0.5rem;
@@ -249,9 +249,9 @@ ul.custom-bullet li::before {
 
   .prose ul li::before {
     content: "";
-    position: absolute;         /* li 기준 절대 위치 */
+    position: absolute;       
     left: 0;
-    top: 0.7rem;                  /* p padding-top과 동일하게 맞춤 */
+    top: 0.7rem;                 
     width: 10px;
     height: 10px;
     background-image: url('/images/fav.png');
@@ -306,7 +306,7 @@ ul.custom-bullet li::before {
 .img-row {
   display: flex;
   gap: 0%;
-  padding: 4%;
+  padding: 2%;
   justify-content: space-between;
   max-width: 100%;
   height: auto;

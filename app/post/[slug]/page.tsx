@@ -12,7 +12,7 @@ const GITHUB_POSTS_URL = "https://raw.githubusercontent.com/VIINIU/vini_blog_db/
 const GITHUB_IMAGE_BASE = "https://raw.githubusercontent.com/VIINIU/vini_blog_db/main/images/";
 
 export default function PostPage() {
-  const { slug } = useParams<{ slug: string }>();  // ✅ 이렇게 받음
+  const { slug } = useParams<{ slug: string }>(); 
   const [content, setContent] = useState("");
   const [title, setTitle] = useState<string>("");
   const [date, setDate] = useState<string>("");
@@ -107,7 +107,7 @@ export default function PostPage() {
       <div className="flex flex-row min-h-screen h-fit w-full items-center justify-center gap-[3%] pb-20">
         <div className="flex flex-col w-full max-w-3xl select-none items-start text-black text-xs sm:text-base h-fit">
           <h1 className="text-2xl xl:text-4xl w-full font-dos pb-1 text-center">{title}</h1>
-          <div className="text-sm text-center w-full font-dos xl:text-base px-1 pb-5">{date}</div>
+          <div className="text-sm select-text text-center w-full font-dos xl:text-base px-1 pb-5">{date}</div>
           <article className="prose" dangerouslySetInnerHTML={{ __html: content }} />
         </div>
       </div>

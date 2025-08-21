@@ -109,7 +109,7 @@ export default function PostPage() {
           <h1 className="text-2xl xl:text-4xl w-full font-dos pb-1 text-center">{title}</h1>
           <div className="text-sm text-center w-full font-dos xl:text-base px-1 pb-5">{date}</div>
           <article
-            className="prose"
+            className="prose font-semibold"
             style={{ userSelect: "text" }}
             dangerouslySetInnerHTML={{ __html: content }}
           />

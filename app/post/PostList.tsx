@@ -1,7 +1,6 @@
 "use client";
 
 import { useSearchParams } from 'next/navigation';
-import { getAllPosts } from "../lib/posts";
 import PostFilter from "./PostFilter";
 
 export default function PostListPage({ allPosts }: { allPosts: any[] }) {

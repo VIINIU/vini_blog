@@ -63,6 +63,13 @@ export default function Header() {
             >
               About Me
             </Link>
+            <Link
+              href="/vini_maker"
+              className={`py-2 ${pathname === "/vini_maker" ? "font-bold text-black" : "text-gray-700"}`}
+              onClick={() => setMenuOpen(false)}
+            >
+              VINI MAKER  
+            </Link>
           </div>
         )}
       </div>
@@ -103,6 +110,15 @@ export default function Header() {
           }`}
         >
           About Me
+        </Link>
+        <div className="w-0 border-r border-black h-3"></div>
+        <Link
+          href="/vini_maker"
+          className={`flex text-sm rounded-2xl items-center ${
+            pathname === "/vini_maker" ? "bg-black text-white pt-0.5 px-2" : "font-light px-1"
+          }`}
+        >
+          VINI MAKER
         </Link>
       </nav>
     </header>

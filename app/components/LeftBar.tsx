@@ -80,7 +80,7 @@ export default function LeftBar() {
               <li><a href="https://www.instagram.com/vini___u/" target="_blank" className="text-decoration-line: underline hover:text-blue-400">Instagram</a></li>
             </ul>
             <ul className="custom-bullet">
-              <li><a href="/YubinSeo_Resume_2025.pdf" target="_blank" className="text-decoration-line: underline hover:text-blue-400">Check My Resume</a></li>
+              <li><a href="/YubinSeo_Resume_2026.pdf" target="_blank" className="text-decoration-line: underline hover:text-blue-400">Check My Resume</a></li>
             </ul>
           </div>
         </div>

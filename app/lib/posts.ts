@@ -14,14 +14,15 @@ function extractPreview(content: string, length: number = 100): string {
   return text.slice(0, length) + (text.length > length ? "..." : "");
 }
 
-const GITHUB_POSTS_URL = "https://raw.githubusercontent.com/VIINIU/vini_blog_db/main/posts/";
-const GITHUB_IMAGES_URL = "https://raw.githubusercontent.com/VIINIU/vini_blog_db/main/images/";
+const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/VIINIU/vini_blog_db/main/";
+const GITHUB_POSTS_URL = GITHUB_RAW_BASE + "posts/";
+const GITHUB_IMAGES_URL = GITHUB_RAW_BASE + "images/";
 const thumbnailUrl = GITHUB_IMAGES_URL + "default_thumbnail.png";
 
 export async function getAllPosts() {
   const res = await fetch(
     "https://api.github.com/repos/VIINIU/vini_blog_db/contents/posts",
-    { next: { revalidate: 60 * 60 } }
+    { next: { revalidate: 60 } }
   );
   if (!res.ok) throw new Error("Failed to fetch posts");
   const files = await res.json();
@@ -31,6 +32,20 @@ export async function getAllPosts() {
       const raw = await fetch(`${GITHUB_POSTS_URL}${file.name}`);
       const text = await raw.text();
       const { data, content } = matter(text);
+
+      let imagePath = thumbnailUrl;
+      if (data.thumbnail) {
+        const thumb = data.thumbnail.trim();
+        if (thumb.startsWith("http")) {
+          imagePath = thumb;
+        } else if (thumb.startsWith("images/")) {
+          imagePath = `${GITHUB_RAW_BASE}${thumb}`;
+        } else if (thumb.startsWith("/")) {
+          imagePath = `${GITHUB_RAW_BASE}${thumb.slice(1)}`;
+        } else {
+          imagePath = `${GITHUB_IMAGES_URL}${thumb}`;
+        }
+      }
 
       return {
         title: data.title || "",
@@ -42,7 +57,7 @@ export async function getAllPosts() {
           : [],
         pinned: data.pinned || "",
         date: data.date ? new Date(data.date).toISOString().split("T")[0] : "",
-        image: data.thumbnail ? `${GITHUB_IMAGES_URL}${data.thumbnail}` : thumbnailUrl,
+        image: imagePath,
         preview: extractPreview(content, 50),
         overview: data.overview === true,
         slug: file.name.replace(/\.mdx?$/, ""),

@@ -15,10 +15,10 @@ type HomeContentProps = {
 
 export default function HomeContent({ posts, projects, pinned, aboutme }: HomeContentProps) {
   const floors = [
-    { floor: '3', label: 'Current Posts', targetId: '#current-posts' },
-    { floor: '2', label: 'Current Projects', targetId: '#current-projects' },
-    { floor: '1', label: 'Pinned Posts', targetId: '#Pinned-posts' },
-    { floor: 'B', label: 'About Me', targetId: '#about-me' },
+    { floor: '3', label: 'About Me', targetId: '#about-me' },
+    { floor: '2', label: 'Pinned Posts', targetId: '#Pinned-posts' },
+    { floor: '1', label: 'Current Posts', targetId: '#current-posts' },
+    { floor: 'B', label: 'Current Projects', targetId: '#current-projects' },
   ];
 
   return (
@@ -34,32 +34,32 @@ export default function HomeContent({ posts, projects, pinned, aboutme }: HomeCo
       </div>
 
       <FloorSection
-        id="current-posts"
+        id="about-me"
         floorName="3rd Floor"
+        title="About Me"
+        posts={aboutme}
+      />
+
+      <FloorSection
+        id="Pinned-posts"
+        floorName="2nd Floor"
+        title="Pinned posts"
+        posts={pinned}
+        reverseTitleAlign
+      />
+
+      <FloorSection
+        id="current-posts"
+        floorName="1st Floor"
         title="Current Posts"
         posts={posts}
       />
 
       <FloorSection
         id="current-projects"
-        floorName="2nd Floor"
+        floorName="Basement"
         title="Current Projects"
         posts={projects}
-        reverseTitleAlign
-      />
-
-      <FloorSection
-        id="Pinned-posts"
-        floorName="1st Floor"
-        title="Pinned posts"
-        posts={pinned}
-      />
-
-      <FloorSection
-        id="about-me"
-        floorName="Basement"
-        title="About Me"
-        posts={aboutme}
         reverseTitleAlign
       />
     </div>

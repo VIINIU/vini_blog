@@ -87,7 +87,6 @@ export default function PostPageClient({ initialSlug }: { initialSlug: string })
       const hasH3 = headings.some(h => h.depth === 3);
       const hasH2 = headings.some(h => h.depth === 2);
 
-      // 순서를 바꾸어 hasH3을 가장 먼저 검사합니다.
       const floorsData = hasH3
         ? headings.filter(h => h.depth === 3).map(({ label, targetId }) => ({ floor: "", label, targetId }))
         : hasH4
@@ -117,42 +116,42 @@ export default function PostPageClient({ initialSlug }: { initialSlug: string })
 
   return (
     <>
-      <div className="flex flex-row min-h-screen h-fit w-full items-center justify-center gap-[3%] pb-20">
-        <div className="flex flex-col w-full max-w-3xl items-start text-black text-xs sm:text-base h-fit">
-          <h1 className="text-2xl xl:text-4xl w-full font-dos pb-1 text-center">{title}</h1>
-          <div className="flex flex-row text-center w-full justify-center pb-1 gap-1">
-            {project.length > 0 && (
-              <div className="flex flex-wrap text-center w-fit justify-center pb-1 gap-1">
-                {project.map((proj) => (
-                  <span
-                    key={proj}
-                    className="px-2 bg-black text-white rounded-xl text-xs xl:text-sm font-dos pt-0.5"
-                  >
-                    {proj}
-                  </span>
-                ))}
-              </div>
-            )}
-            {category.length > 0 && (
-              <div className="flex flex-wrap text-center w-fit justify-center pb-1 gap-1">
-                {category.map((cat) => (
-                  <span
-                    key={cat}
-                    className="px-2 bg-gray-200 rounded-xl text-xs xl:text-sm font-dos pt-0.5"
-                  >
-                    {cat}
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
-          <div className="text-sm text-center w-full font-dos xl:text-base px-1 pb-3">{date}</div>
-          <article
-            className="prose font-medium"
-            style={{ userSelect: "text" }}
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
+      <div className="flex flex-col w-full max-w-3xl items-start text-black text-xs sm:text-base h-fit pb-20">
+        <h1 className="text-2xl xl:text-4xl w-full font-dos pb-1 text-center">{title}</h1>
+        <div className="flex flex-row text-center w-full justify-center pb-1 gap-1">
+          {project.length > 0 && (
+            <div className="flex flex-wrap text-center w-fit justify-center pb-1 gap-1">
+              {project.map((proj) => (
+                <span
+                  key={proj}
+                  className="px-2 bg-black text-white rounded-xl text-xs xl:text-sm font-dos pt-0.5"
+                >
+                  {proj}
+                </span>
+              ))}
+            </div>
+          )}
+          {category.length > 0 && (
+            <div className="flex flex-wrap text-center w-fit justify-center pb-1 gap-1">
+              {category.map((cat) => (
+                <span
+                  key={cat}
+                  className="px-2 bg-gray-200 rounded-xl text-xs xl:text-sm font-dos pt-0.5"
+                >
+                  {cat}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
+        <div className="text-sm text-center w-full font-dos xl:text-base px-1 pb-3">{date}</div>
+        
+        {/* 🌟 prose 가 부모 너비를 뚫고 나가지 못하게 w-full max-w-none 을 명시했습니다. */}
+        <article
+          className="prose font-medium w-full max-w-none"
+          style={{ userSelect: "text" }}
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
       </div>
       <SetRightBarClient floors={floors} />
     </>

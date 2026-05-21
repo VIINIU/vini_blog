@@ -82,18 +82,12 @@ export default function PostPage() {
         breaks: true,  
       });
 
-      const htmlContent = await marked(content);  
-      const hasH4 = headings.some(h => h.depth === 4);
+      const htmlContent = await marked(content);        
       const hasH3 = headings.some(h => h.depth === 3);
-      const hasH2 = headings.some(h => h.depth === 2);
 
-      const floorsData = hasH4
-        ? headings.filter(h => h.depth === 4).map(({ label, targetId }) => ({ floor: "", label, targetId }))
-        : hasH3
-        ? headings.filter(h => h.depth === 3).map(({ label, targetId }) => ({ floor: "", label, targetId }))
-        : hasH2
-        ? headings.filter(h => h.depth === 2).map(({ label, targetId }) => ({ floor: "", label, targetId }))
-        : [];
+      const floorsData = headings
+        .filter(h => h.depth === 2 || h.depth === 3 || (h.depth === 4 && !hasH3))
+        .map(({ label, targetId }) => ({ floor: "", label, targetId }));
 
       setTitle(data.title);
       setCategory(

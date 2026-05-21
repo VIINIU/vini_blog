@@ -4,7 +4,15 @@ import Footer from '@/app/components/Footer';
 import LeftBar from '@/app/components/LeftBar';
 import RightBar from '@/app/components/RightBar';
 
-import { RightBarProvider } from '@/app/components/RightBarContext'; // 새로 만든 Context Provider 임포트
+import { RightBarProvider } from '@/app/components/RightBarContext'; 
+
+export const metadata: Metadata = {
+  title: {
+    default: "VINI BLOG",     
+    template: "%s | VINI BLOG", 
+  },
+  description: "VINI의 Tech blog",
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

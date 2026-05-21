@@ -1,4 +1,5 @@
 import './globals.css';
+import { Metadata } from 'next';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
 import LeftBar from '@/app/components/LeftBar';

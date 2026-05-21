@@ -82,13 +82,20 @@ export default function PostPage() {
         breaks: true,  
       });
 
-      const htmlContent = await marked(content);        
+      const htmlContent = await marked(content);  
+      const hasH4 = headings.some(h => h.depth === 4);
       const hasH3 = headings.some(h => h.depth === 3);
+      const hasH2 = headings.some(h => h.depth === 2);
 
-      const floorsData = headings
-        .filter(h => h.depth === 2 || h.depth === 3 || (h.depth === 4 && !hasH3))
-        .map(({ label, targetId }) => ({ floor: "", label, targetId }));
-
+      // 순서를 바꾸어 hasH3을 가장 먼저 검사합니다.
+      const floorsData = hasH3
+        ? headings.filter(h => h.depth === 3).map(({ label, targetId }) => ({ floor: "", label, targetId }))
+        : hasH4
+        ? headings.filter(h => h.depth === 4).map(({ label, targetId }) => ({ floor: "", label, targetId }))
+        : hasH2
+        ? headings.filter(h => h.depth === 2).map(({ label, targetId }) => ({ floor: "", label, targetId }))
+        : [];
+      
       setTitle(data.title);
       setCategory(
         typeof data.category === "string"

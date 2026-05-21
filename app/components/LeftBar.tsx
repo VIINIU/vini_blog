@@ -63,10 +63,10 @@ export default function LeftBar() {
           <p className='text-base'>관심분야</p>
           <p className='h-0 border-b-1 w-5 border-black'></p>
           <div className='flex flex-col items-center'>
-            <p><a href="https://viniu.info/post?category=LINUX" target="_blank" className=" hover:text-blue-400">LINUX</a><br/><a href="https://viniu.info/post?category=ESP32" target="_blank" className=" hover:text-blue-400">Embeded System</a></p>
+            <p><a href="https://viniu.info/post?category=LINUX" target="_blank" className=" hover:text-blue-400">LINUX</a><br/><a href="https://viniu.info/post?category=ESP32" target="_blank" className=" hover:text-blue-400">Embedded System</a></p>
           </div>
         </div>
-        <div className="flex flex-col items-center text-left gap-2 text-sm">
+        <div className="flex flex-col items-center text-lef`t gap-2 text-sm">
           <p className='text-base'>연락처</p>
           <p className='h-0 border-b-1 w-5 border-black'></p>
           <div className='flex flex-col items-center text-sm gap-1'>

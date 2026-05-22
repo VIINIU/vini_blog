@@ -116,7 +116,7 @@ export default function PostPageClient({ initialSlug }: { initialSlug: string })
 
   return (
     <>
-      <div className="flex flex-col w-full max-w-3xl items-start text-black text-xs sm:text-base h-fit pb-20">
+      <div className="flex flex-col w-full max-w-3xl items-start text-black text-sm sm:text-base h-fit pb-20">
         <h1 className="text-2xl xl:text-4xl w-full font-dos pb-1 text-center">{title}</h1>
         <div className="flex flex-row text-center w-full justify-center pb-1 gap-1">
           {project.length > 0 && (
@@ -124,7 +124,7 @@ export default function PostPageClient({ initialSlug }: { initialSlug: string })
               {project.map((proj) => (
                 <span
                   key={proj}
-                  className="px-2 bg-black text-white rounded-xl text-xs xl:text-sm font-dos pt-0.5"
+                  className="px-2 bg-black text-white rounded-xl text-sm xl:text-base font-dos pt-0.5"
                 >
                   {proj}
                 </span>
@@ -136,7 +136,7 @@ export default function PostPageClient({ initialSlug }: { initialSlug: string })
               {category.map((cat) => (
                 <span
                   key={cat}
-                  className="px-2 bg-gray-200 rounded-xl text-xs xl:text-sm font-dos pt-0.5"
+                  className="px-2 bg-gray-200 rounded-xl text-sm xl:text-base font-dos pt-0.5"
                 >
                   {cat}
                 </span>
@@ -144,7 +144,7 @@ export default function PostPageClient({ initialSlug }: { initialSlug: string })
             </div>
           )}
         </div>
-        <div className="text-sm text-center w-full font-dos xl:text-base px-1 pb-3">{date}</div>
+        <div className="text-base text-center w-full font-dos xl:text-lg px-1 pb-3">{date}</div>
         
         {/* 🌟 prose 가 부모 너비를 뚫고 나가지 못하게 w-full max-w-none 을 명시했습니다. */}
         <article

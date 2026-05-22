@@ -197,7 +197,7 @@ ul.custom-bullet li::before {
 
 @layer components {
   .prose {
-    @apply text-xs font-medium text-black;
+    @apply text-sm sm:text-base font-medium text-black;
     font-family: var(--font-gothic);
     overflow-wrap: break-word;
     word-break: break-word;
@@ -205,22 +205,22 @@ ul.custom-bullet li::before {
   }
 
   .prose h1 {
-    @apply text-lg xl:text-2xl pt-3 text-center text-black;
+    @apply text-2xl xl:text-3xl pt-3 text-center text-black;
     font-family: var(--font-dos);
   }
 
   .prose h2 {
-    @apply text-base pt-5 pb-2 text-center text-black;
+    @apply text-xl xl:text-2xl pt-5 pb-2 text-center text-black;
     font-family: var(--font-dos);
   }
 
   .prose h3 {
-    @apply text-base pt-5 pb-2 font-medium text-center text-black;
+    @apply text-lg xl:text-xl pt-5 pb-2 font-medium text-center text-black;
     font-family: var(--font-dos);
   }
 
   .prose h4 {
-    @apply text-sm pt-8 pb-2 font-medium text-center text-black;
+    @apply text-base xl:text-lg pt-8 pb-2 font-medium text-center text-black;
     font-family: var(--font-dos);
   }
 
@@ -254,7 +254,7 @@ ul.custom-bullet li::before {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     color: black;
     letter-spacing: 0.1rem; 
   }
@@ -311,7 +311,7 @@ ul.custom-bullet li::before {
   }
 
   .prose pre {
-    @apply bg-gray-900 text-white text-xs p-3 rounded-md overflow-x-auto;
+    @apply bg-gray-900 text-white text-sm p-3 rounded-md overflow-x-auto;
     white-space: pre-wrap;
     word-break: break-word;
   }

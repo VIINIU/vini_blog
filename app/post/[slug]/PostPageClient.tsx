@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import matter from "gray-matter";
 import { marked } from "marked";
 import slugify from "slugify";
-import SetRightBarClient from "./SetRightBarClient";
+import SetRightBarClient from "@/app/components/SetRightBarClient";
+import { Calendar } from "lucide-react";
 
 let headingIndex = 0;
 const GITHUB_POSTS_URL = "https://raw.githubusercontent.com/VIINIU/vini_blog_db/main/posts/";
@@ -40,6 +41,47 @@ export default function PostPageClient({ initialSlug }: { initialSlug: string })
       const renderer = new marked.Renderer();
       const headings: { floor: string; label: string; targetId: string; depth: number }[] = [];
       const usedSlugs = new Map<string, number>();
+
+      renderer.code = ({ text, lang }: { text: string; lang?: string }) => {
+        const language = lang || "code";
+        const codeId = `code-block-${Math.random().toString(36).slice(2, 9)}`;
+
+        return `
+          <div class="code-box-wrapper my-6 rounded-2xl overflow-hidden border border-stone-850 bg-[#1c1917] premium-card-shadow font-mono">
+            <!-- Mac style window header bar -->
+            <div class="flex items-center justify-between px-4 py-2.5 bg-stone-900 border-b border-stone-850 select-none">
+              <!-- Window controls -->
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded-full bg-[#ff5f56] opacity-90 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-[#ffbd2e] opacity-90 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-[#27c93f] opacity-90 inline-block"></span>
+              </div>
+              <!-- Code label and Copy Action -->
+              <div class="flex items-center gap-3">
+                <span class="text-[10px] uppercase tracking-wider font-bold text-stone-500 font-dos">${language}</span>
+                <button 
+                  onclick="navigator.clipboard.writeText(document.getElementById('${codeId}').innerText).then(() => {
+                    const btn = this;
+                    const prevText = btn.innerText;
+                    btn.innerText = 'Copied!';
+                    btn.style.color = '#96c2f8';
+                    setTimeout(() => {
+                      btn.innerText = prevText;
+                      btn.style.color = '';
+                    }, 1500);
+                  })"
+                  class="text-[10px] tracking-wider text-stone-400 hover:text-[#96c2f8] transition-colors duration-200 cursor-pointer font-dos border border-stone-700/60 px-2 py-0.5 rounded"
+                >
+                  Copy
+                </button>
+              </div>
+            </div>
+            
+            <!-- Code content -->
+            <pre class="p-4 overflow-x-auto text-[13.5px] leading-relaxed text-stone-300 font-mono scrollbar-hide"><code id="${codeId}">${text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")}</code></pre>
+          </div>
+        `;
+      };
 
       renderer.heading = ({ tokens, depth }: Parameters<typeof renderer.heading>[0]) => {
         let text = tokens
@@ -116,44 +158,50 @@ export default function PostPageClient({ initialSlug }: { initialSlug: string })
 
   return (
     <>
-      <div className="flex flex-col w-full max-w-3xl items-start text-black text-sm sm:text-base h-fit pb-20">
-        <h1 className="text-2xl xl:text-4xl w-full font-dos pb-1 text-center">{title}</h1>
-        <div className="flex flex-row text-center w-full justify-center pb-1 gap-1">
-          {project.length > 0 && (
-            <div className="flex flex-wrap text-center w-fit justify-center pb-1 gap-1">
-              {project.map((proj) => (
+      <div className="flex flex-col w-full max-w-3xl items-start text-stone-850 text-sm sm:text-base h-fit pb-24 px-1">
+        {/* 포스트 상세 헤더 영역 */}
+        <div className="flex flex-col w-full border-b border-stone-200 pb-8 mb-8">
+          <h1 className="text-3xl sm:text-4xl xl:text-5xl w-full font-dos font-bold text-stone-800 tracking-tight leading-tight text-center sm:text-left">
+            {title}
+          </h1>
+          
+          <div className="flex flex-col sm:flex-row items-center sm:justify-between w-full mt-5 gap-3">
+            {/* 날짜 */}
+            <div className="flex items-center gap-1.5 text-xs sm:text-sm text-stone-400 font-light font-dos">
+              <Calendar size={13} className="stroke-stone-400" />
+              <span>{date}</span>
+            </div>
+
+            {/* 태그 칩 목록 */}
+            <div className="flex flex-row flex-wrap gap-1.5 text-[10px] sm:text-xs">
+              {project.length > 0 && project.map((proj) => (
                 <span
                   key={proj}
-                  className="px-2 bg-black text-white rounded-xl text-sm xl:text-base font-dos pt-0.5"
+                  className="text-stone-100 bg-stone-800 px-2.5 py-0.5 rounded-full font-semibold font-dos shadow-sm"
                 >
                   {proj}
                 </span>
               ))}
-            </div>
-          )}
-          {category.length > 0 && (
-            <div className="flex flex-wrap text-center w-fit justify-center pb-1 gap-1">
-              {category.map((cat) => (
+              {category.length > 0 && category.map((cat) => (
                 <span
                   key={cat}
-                  className="px-2 bg-gray-200 rounded-xl text-sm xl:text-base font-dos pt-0.5"
+                  className="text-stone-500 bg-stone-100 px-2.5 py-0.5 rounded-full font-dos border border-stone-200"
                 >
                   {cat}
                 </span>
               ))}
             </div>
-          )}
+          </div>
         </div>
-        <div className="text-base text-center w-full font-dos xl:text-lg px-1 pb-3">{date}</div>
         
-        {/* 🌟 prose 가 부모 너비를 뚫고 나가지 못하게 w-full max-w-none 을 명시했습니다. */}
+        {/* 본문 영역 (마크다운 렌더링) */}
         <article
-          className="prose font-medium w-full max-w-none"
+          className="prose font-medium w-full max-w-none text-stone-800 leading-relaxed tracking-wide"
           style={{ userSelect: "text" }}
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </div>
-      <SetRightBarClient floors={floors} />
+      <SetRightBarClient floors={floors} title="Short Cut" />
     </>
   );
 }

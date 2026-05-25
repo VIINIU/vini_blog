@@ -5,12 +5,17 @@ import { useRightBar } from '@/app/components/RightBarContext';
 
 type Floor = { floor: string; label: string; targetId: string };
 
-export default function SetRightBarClient({ floors }: { floors: Floor[] }) {
+type SetRightBarClientProps = {
+  floors: Floor[];
+  title?: string;
+};
+
+export default function SetRightBarClient({ floors, title = "Floor Guide" }: SetRightBarClientProps) {
   const { setRightBar } = useRightBar();
 
   useEffect(() => {
-    setRightBar("Floor Guide", floors);
-  }, [floors, setRightBar]);
+    setRightBar(title, floors);
+  }, [floors, title, setRightBar]);
 
   return null;
 }

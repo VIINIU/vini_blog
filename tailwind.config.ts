@@ -15,16 +15,16 @@ export default{
         gothic: 'var(--font-gothic)'
       },
       animation: {
-        'door-open': 'door-open 0.5s ease-in-out forwards',
-        'door-close': 'door-close 0.5s ease-in-out forwards',
+        'door-open': 'door-open 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'door-close': 'door-close 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
       },
       keyframes: {
         'door-open': {
           '0%': { transform: 'rotateY(0deg)' },
-          '100%': { transform: 'rotateY(-90deg)' },
+          '100%': { transform: 'rotateY(-110deg)' }, /* 문이 완전히 젖혀져 내부가 잘 보이도록 각도를 -110도로 개선 */
         },
         'door-close': {
-          '0%': { transform: 'rotateY(-90deg)' },
+          '0%': { transform: 'rotateY(-110deg)' },
           '100%': { transform: 'rotateY(0deg)' },
         },
       },

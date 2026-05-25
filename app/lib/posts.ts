@@ -27,43 +27,50 @@ export async function getAllPosts() {
   if (!res.ok) throw new Error("Failed to fetch posts");
   const files = await res.json();
 
-  const posts = await Promise.all(
+  const postsData = await Promise.all(
     files.map(async (file: { name: string }) => {
-      const raw = await fetch(`${GITHUB_POSTS_URL}${file.name}`);
-      const text = await raw.text();
-      const { data, content } = matter(text);
+      try {
+        const raw = await fetch(`${GITHUB_POSTS_URL}${file.name}`);
+        const text = await raw.text();
+        const { data, content } = matter(text);
 
-      let imagePath = thumbnailUrl;
-      if (data.thumbnail) {
-        const thumb = data.thumbnail.trim();
-        if (thumb.startsWith("http")) {
-          imagePath = thumb;
-        } else if (thumb.startsWith("images/")) {
-          imagePath = `${GITHUB_RAW_BASE}${thumb}`;
-        } else if (thumb.startsWith("/")) {
-          imagePath = `${GITHUB_RAW_BASE}${thumb.slice(1)}`;
-        } else {
-          imagePath = `${GITHUB_IMAGES_URL}${thumb}`;
+        let imagePath = thumbnailUrl;
+        if (data.thumbnail) {
+          const thumb = data.thumbnail.trim();
+          if (thumb.startsWith("http")) {
+            imagePath = thumb;
+          } else if (thumb.startsWith("images/")) {
+            imagePath = `${GITHUB_RAW_BASE}${thumb}`;
+          } else if (thumb.startsWith("/")) {
+            imagePath = `${GITHUB_RAW_BASE}${thumb.slice(1)}`;
+          } else {
+            imagePath = `${GITHUB_IMAGES_URL}${thumb}`;
+          }
         }
-      }
 
-      return {
-        title: data.title || "",
-        category: data.category
-          ? data.category.split(",").map((s: string) => s.trim())
-          : [],
-        project: data.project
-          ? data.project.split(",").map((s: string) => s.trim())
-          : [],
-        pinned: data.pinned || "",
-        date: data.date ? new Date(data.date).toISOString().split("T")[0] : "",
-        image: imagePath,
-        preview: extractPreview(content, 50),
-        overview: data.overview === true,
-        slug: file.name.replace(/\.mdx?$/, ""),
-      };
+        return {
+          title: data.title || "",
+          category: data.category
+            ? data.category.split(",").map((s: string) => s.trim())
+            : [],
+          project: data.project
+            ? data.project.split(",").map((s: string) => s.trim())
+            : [],
+          pinned: data.pinned || "",
+          date: data.date ? new Date(data.date).toISOString().split("T")[0] : "",
+          image: imagePath,
+          preview: extractPreview(content, 50),
+          overview: data.overview === true,
+          slug: file.name.replace(/\.mdx?$/, ""),
+        };
+      } catch (error) {
+        console.error(`Failed to parse post frontmatter for file: ${file.name}`, error);
+        return null;
+      }
     })
   );
+
+  const posts = postsData.filter((post): post is NonNullable<typeof post> => post !== null);
 
   return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }

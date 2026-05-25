@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #bcbcbc;
-  --black: #000000;
-  --gray : #D9d9d9;
+  --background: #fafaf9; /* 오프화이트 샌드 톤 (stone-50) */
+  --foreground: #44403c; /* 부드러운 다크 그레이 (stone-700) */
+  --black: #1c1917;      /* 깊은 블랙스톤 (stone-900) */
+  --gray : #e7e5e4;       /* 연한 그레이 (stone-200) */
+  --accent: #1c1917;     /* 시크 블랙 악센트 */
+  --accent-light: #f5f5f4; /* 차분한 옅은 그레이 */
 }
 
 /* fonts */
@@ -75,6 +77,8 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-gray: var(--gray);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
   --breakpoint-xs: 30rem;
   --breakpoint-xl: 80rem;
   --breakpoint-3xl: 120rem;
@@ -86,6 +90,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: 'Gothic';
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 footer {
@@ -100,6 +105,43 @@ header{
 title {
   background: var(--background);
   font-family: 'serif';
+}
+
+/* 3D Perspective 및 럭셔리 하우스 인터랙션 유틸리티 */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.elevator-glow {
+  box-shadow: 0 4px 12px rgba(28, 25, 23, 0.08), 0 0 1px rgba(28, 25, 23, 0.3);
+}
+
+.premium-card-shadow {
+  box-shadow: 0 4px 20px -2px rgba(28, 25, 23, 0.05), 0 2px 8px -1px rgba(28, 25, 23, 0.02);
+}
+
+.premium-card-shadow-hover {
+  box-shadow: 0 20px 35px -5px rgba(28, 25, 23, 0.08), 0 10px 15px -3px rgba(28, 25, 23, 0.03);
+}
+
+.luxury-line {
+  position: relative;
+}
+.luxury-line::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--foreground), transparent);
+  opacity: 0.2;
 }
 
 
@@ -311,7 +353,7 @@ ul.custom-bullet li::before {
   }
 
   .prose pre {
-    @apply bg-gray-900 text-white text-sm p-3 rounded-md overflow-x-auto;
+    @apply overflow-x-auto;
     white-space: pre-wrap;
     word-break: break-word;
   }
@@ -321,7 +363,7 @@ ul.custom-bullet li::before {
   }
 
   .prose :not(pre) > code {
-    @apply bg-gray-100 text-pink-700 px-1 py-0.5 rounded;
+    @apply bg-stone-100 text-stone-700 px-1.5 py-0.5 rounded font-semibold border border-stone-200/60 text-xs sm:text-sm font-mono mx-0.5;
   }
 
   .prose a {

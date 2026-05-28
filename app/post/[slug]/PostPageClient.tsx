@@ -40,23 +40,7 @@ export default function PostPageClient({ initialSlug }: { initialSlug: string })
 
       const bookmarkRegex = /\[bookmark:(https?:\/\/[^\]\s]+)\]/g;
       const contentWithBookmarks = content.replace(bookmarkRegex, (_, url) => {
-        return `
-          <div class="bookmark-wrapper">
-            <a href="${url}" target="_blank" rel="noopener noreferrer" class="notion-bookmark" data-url="${url}">
-              <div class="bookmark-info">
-                <div class="bookmark-title">Loading...</div>
-                <div class="bookmark-description"></div>
-                <div class="bookmark-link-wrapper">
-                  <img src="" class="bookmark-favicon" style="display:none" />
-                  <span class="bookmark-link">${url}</span>
-                </div>
-              </div>
-              <div class="bookmark-image" style="display:none">
-                <img src="" style="display:none" />
-              </div>
-            </a>
-          </div>
-        `;
+        return `<div class="bookmark-wrapper"><a href="${url}" target="_blank" rel="noopener noreferrer" class="notion-bookmark" data-url="${url}"><div class="bookmark-info"><div class="bookmark-title">Loading...</div><div class="bookmark-description"></div><div class="bookmark-link-wrapper"><img src="" class="bookmark-favicon" style="display:none" /><span class="bookmark-link">${url}</span></div></div><div class="bookmark-image" style="display:none"><img src="" style="display:none" /></div></a></div>`;
       });
 
       const renderer = new marked.Renderer();

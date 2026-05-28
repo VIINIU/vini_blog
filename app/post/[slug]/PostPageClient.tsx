@@ -38,6 +38,27 @@ export default function PostPageClient({ initialSlug }: { initialSlug: string })
 
       const { data, content } = matter(updatedMarkdown);
 
+      const bookmarkRegex = /\[bookmark:(https?:\/\/[^\]\s]+)\]/g;
+      const contentWithBookmarks = content.replace(bookmarkRegex, (_, url) => {
+        return `
+          <div class="bookmark-wrapper">
+            <a href="${url}" target="_blank" rel="noopener noreferrer" class="notion-bookmark" data-url="${url}">
+              <div class="bookmark-info">
+                <div class="bookmark-title">Loading...</div>
+                <div class="bookmark-description"></div>
+                <div class="bookmark-link-wrapper">
+                  <img src="" class="bookmark-favicon" style="display:none" />
+                  <span class="bookmark-link">${url}</span>
+                </div>
+              </div>
+              <div class="bookmark-image" style="display:none">
+                <img src="" style="display:none" />
+              </div>
+            </a>
+          </div>
+        `;
+      });
+
       const renderer = new marked.Renderer();
       const headings: { floor: string; label: string; targetId: string; depth: number }[] = [];
       const usedSlugs = new Map<string, number>();
@@ -124,7 +145,7 @@ export default function PostPageClient({ initialSlug }: { initialSlug: string })
         breaks: true,  
       });
 
-      const htmlContent = await marked(content);  
+      const htmlContent = await marked(contentWithBookmarks);  
       const hasH4 = headings.some(h => h.depth === 4);
       const hasH3 = headings.some(h => h.depth === 3);
       const hasH2 = headings.some(h => h.depth === 2);
@@ -155,6 +176,45 @@ export default function PostPageClient({ initialSlug }: { initialSlug: string })
 
     fetchData();
   }, [slug]);
+
+  useEffect(() => {
+    if (!content) return;
+    
+    const bookmarks = document.querySelectorAll('.notion-bookmark[data-url]');
+    bookmarks.forEach(async (bookmark) => {
+      const url = bookmark.getAttribute('data-url');
+      if (!url) return;
+
+      try {
+        const res = await fetch(`/api/metadata?url=${encodeURIComponent(url)}`);
+        const data = await res.json();
+        
+        if (data.error) throw new Error(data.error);
+
+        const titleEl = bookmark.querySelector('.bookmark-title');
+        const descEl = bookmark.querySelector('.bookmark-description');
+        const favEl = bookmark.querySelector('.bookmark-favicon') as HTMLImageElement;
+        const imgContainer = bookmark.querySelector('.bookmark-image') as HTMLDivElement;
+        const imgEl = bookmark.querySelector('.bookmark-image img') as HTMLImageElement;
+
+        if (titleEl) titleEl.textContent = data.title;
+        if (descEl) descEl.textContent = data.description;
+        if (favEl && data.favicon) {
+          favEl.src = data.favicon;
+          favEl.style.display = 'block';
+        }
+        if (imgEl && data.image) {
+          imgEl.src = data.image;
+          if (imgContainer) imgContainer.style.display = 'block';
+          imgEl.style.display = 'block';
+        }
+      } catch (e) {
+        console.error("Failed to load bookmark metadata", e);
+        const titleEl = bookmark.querySelector('.bookmark-title');
+        if (titleEl) titleEl.textContent = url;
+      }
+    });
+  }, [content]);
 
   return (
     <>

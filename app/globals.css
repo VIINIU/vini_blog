@@ -377,6 +377,50 @@ ul.custom-bullet li::before {
   .prose img {
     padding: 2%;
   }
+
+  /* Notion-style Bookmark Card */
+  .bookmark-wrapper {
+    @apply my-6 w-full;
+  }
+
+  .notion-bookmark {
+    @apply flex w-full border border-stone-200 rounded-xl overflow-hidden hover:bg-stone-50 transition-all duration-200 no-underline !important;
+    text-decoration: none !important;
+    max-height: 120px;
+    background: white;
+  }
+
+  .bookmark-info {
+    @apply flex-1 p-3 sm:p-4 flex flex-col justify-between overflow-hidden;
+  }
+
+  .bookmark-title {
+    @apply text-sm sm:text-[15px] font-bold text-stone-800 truncate mb-1;
+  }
+
+  .bookmark-description {
+    @apply text-[11px] sm:text-xs text-stone-500 line-clamp-2 mb-2 leading-relaxed;
+  }
+
+  .bookmark-link-wrapper {
+    @apply flex items-center gap-2 overflow-hidden mt-auto;
+  }
+
+  .bookmark-favicon {
+    @apply w-3.5 h-3.5 object-contain;
+  }
+
+  .bookmark-link {
+    @apply text-[10px] text-stone-400 truncate font-light;
+  }
+
+  .bookmark-image {
+    @apply w-[100px] sm:w-[180px] h-full overflow-hidden flex-shrink-0 border-l border-stone-100;
+  }
+
+  .bookmark-image img {
+    @apply w-full h-full object-cover p-0 !important;
+  }
 }
 
 

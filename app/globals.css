@@ -384,7 +384,7 @@ ul.custom-bullet li::before {
   }
 
   .notion-bookmark {
-    @apply flex w-full border border-stone-200 rounded-xl overflow-hidden hover:bg-stone-50 transition-all duration-200 no-underline !important;
+    @apply flex w-full border border-stone-200 rounded-xl overflow-hidden hover:bg-stone-50 transition-all duration-200 !no-underline;
     text-decoration: none !important;
     max-height: 120px;
     background: white;
@@ -419,7 +419,7 @@ ul.custom-bullet li::before {
   }
 
   .bookmark-image img {
-    @apply w-full h-full object-cover p-0 !important;
+    @apply w-full h-full object-cover !p-0;
   }
 }
 

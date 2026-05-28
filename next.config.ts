@@ -7,7 +7,9 @@ const nextConfig = {
     domains: ['raw.githubusercontent.com'],
   },
   experimental: {
-    allowedDevOrigins: ['https://vini-blog.dev-lr.com'],
+    serverActions: {
+      allowedOrigins: ['https://vini-blog.dev-lr.com'],
+    },
   },
   output : 'standalone'
 };

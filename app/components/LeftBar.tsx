@@ -36,9 +36,9 @@ export default function LeftBar() {
           <p className="h-0 border-b-1 w-5 border-black"></p>
           <div className="flex flex-col items-center">
             <p>
-              <a href="https://viniu.info/post" target="_blank" className="hover:text-blue-500 transition-colors duration-200">Embedded System</a>
+              <a href="https://viniu.info/post?category=AI%20%26%20Deep%20Learning" target="_blank" className="hover:text-blue-500 transition-colors duration-200">Embedded System</a>
               <br />
-              <a href="https://viniu.info/post" target="_blank" className="hover:text-blue-500 transition-colors duration-200">On-Device AI</a>
+              <a href="https://viniu.info/post?category=Embedded%20%26%20IoT" target="_blank" className="hover:text-blue-500 transition-colors duration-200">On-Device AI</a>
             </p>
           </div>
         </div>

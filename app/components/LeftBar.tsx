@@ -15,7 +15,6 @@ export default function LeftBar() {
         bg-transparent border-none shadow-none"
     >
       <div className="flex flex-col items-center text-center gap-5 w-full">
-        {/* 예전의 둥근 아치형 프로필 이미지 */}
         <div className="relative w-[130px] h-[130px] rounded-t-full overflow-hidden">
           <Image
             src={MyPic}
@@ -26,14 +25,12 @@ export default function LeftBar() {
           />
         </div>
 
-        {/* 집주인 섹션 */}
         <div className="flex flex-col items-center text-center gap-1 text-sm">
           <p className="text-base text-stone-850 font-bold">집주인</p>
           <p className="h-0 border-b-1 w-5 border-black"></p>
           <p>서유빈(Yubin Seo)</p> 
         </div>
 
-        {/* 관심분야 섹션 */}
         <div className="flex flex-col items-center text-center gap-1 text-sm">
           <p className="text-base text-stone-850 font-bold">관심분야</p>
           <p className="h-0 border-b-1 w-5 border-black"></p>
@@ -46,9 +43,8 @@ export default function LeftBar() {
           </div>
         </div>
 
-        {/* 원래 텍스트 목록 및 custom-bullet 이미지 아이콘 복구 */}
         <div className="flex flex-col items-center text-left gap-2 text-sm">
-          <p className="text-base text-stone-850 font-bold text-center">연락처</p>
+          <p className="text-base text-stone-850 font-bold text-center">Contact Me on..</p>
           <p className="h-0 border-b-1 w-5 border-black text-center"></p>
           <div className="flex flex-col items-start text-sm gap-1 w-full pl-6">
             <ul className="custom-bullet">

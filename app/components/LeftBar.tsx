@@ -26,25 +26,25 @@ export default function LeftBar() {
         </div>
 
         <div className="flex flex-col items-center text-center gap-1 text-sm">
-          <p className="text-base text-stone-850 font-bold">집주인</p>
+          <p className="text-base text-stone-850 font-bold">Host</p>
           <p className="h-0 border-b-1 w-5 border-black"></p>
           <p>서유빈(Yubin Seo)</p> 
         </div>
 
         <div className="flex flex-col items-center text-center gap-1 text-sm">
-          <p className="text-base text-stone-850 font-bold">관심분야</p>
+          <p className="text-base text-stone-850 font-bold">Interests</p>
           <p className="h-0 border-b-1 w-5 border-black"></p>
           <div className="flex flex-col items-center">
             <p>
-              <a href="https://viniu.info/post?category=LINUX" target="_blank" className="hover:text-blue-500 transition-colors duration-200">LINUX</a>
+              <a href="https://viniu.info/post" target="_blank" className="hover:text-blue-500 transition-colors duration-200">Embedded System</a>
               <br />
-              <a href="https://viniu.info/post?category=ESP32" target="_blank" className="hover:text-blue-500 transition-colors duration-200">Embedded System</a>
+              <a href="https://viniu.info/post" target="_blank" className="hover:text-blue-500 transition-colors duration-200">On-Device AI</a>
             </p>
           </div>
         </div>
 
         <div className="flex flex-col items-center text-left gap-2 text-sm">
-          <p className="text-base text-stone-850 font-bold text-center">Contact Me on..</p>
+          <p className="text-base text-stone-850 font-bold text-center">Contact me</p>
           <p className="h-0 border-b-1 w-5 border-black text-center"></p>
           <div className="flex flex-col items-start text-sm gap-1 w-full pl-6">
             <ul className="custom-bullet">

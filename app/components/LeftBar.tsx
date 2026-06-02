@@ -1,8 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import MyPic from '../../public/images/shushulun.jpg';
 import { useMomentumScroll } from '@/app/lib/useMomentumScroll';
+
+const MY_PIC_URL = 'https://raw.githubusercontent.com/VIINIU/vini_blog_db/refs/heads/main/images/About_me/About_me.png';
 
 export default function LeftBar() {
   // 공통 커스텀 훅을 사용하여 관성 스크롤 로직을 재사용하고 중복을 제거한 상태를 유지
@@ -17,7 +18,7 @@ export default function LeftBar() {
       <div className="flex flex-col items-center text-center gap-5 w-full">
         <div className="relative w-[130px] h-[130px] rounded-t-full overflow-hidden">
           <Image
-            src={MyPic}
+            src={MY_PIC_URL}
             alt="Host 서유빈"
             fill
             className="object-cover"

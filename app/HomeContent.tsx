@@ -17,8 +17,8 @@ export default function HomeContent({ posts, projects, pinned, aboutme }: HomeCo
   const floors = [
     { floor: '3', label: 'About Me', targetId: '#about-me' },
     { floor: '2', label: 'Pinned Posts', targetId: '#Pinned-posts' },
-    { floor: '1', label: 'Current Posts', targetId: '#current-posts' },
-    { floor: 'B', label: 'Current Projects', targetId: '#current-projects' },
+    { floor: '1', label: 'Current Projects', targetId: '#current-projects' },
+    { floor: 'B', label: 'Dumb Projects', targetId: '#dumb-projects' },
   ];
 
   return (
@@ -49,16 +49,16 @@ export default function HomeContent({ posts, projects, pinned, aboutme }: HomeCo
       />
 
       <FloorSection
-        id="current-posts"
+        id="current-projects"
         floorName="1st Floor"
-        title="Current Posts"
+        title="Current Projects"
         posts={posts}
       />
 
       <FloorSection
-        id="current-projects"
+        id="dumb-projects"
         floorName="Basement"
-        title="Current Projects"
+        title="Dumb Projects"
         posts={projects}
         reverseTitleAlign
       />

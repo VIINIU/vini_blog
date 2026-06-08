@@ -61,6 +61,7 @@ export async function getAllPosts() {
           image: imagePath,
           preview: extractPreview(content, 50),
           overview: data.overview === true,
+          dumb: data.dumb === true,
           slug: file.name.replace(/\.mdx?$/, ""),
         };
       } catch (error) {
@@ -77,14 +78,14 @@ export async function getAllPosts() {
 
 
 
-export async function getRecentPosts(limit: number) {
+export async function getCurrentProjects(limit: number) {
   const posts = await getAllPosts();
-  return posts.filter(post => !post.overview && post.title !== "About Me").slice(0, limit);
+  return posts.filter(post => !post.dumb && post.title !== "About Me").slice(0, limit);
 }
 
-export async function getRecentProjects(limit: number) {
+export async function getDumbProjects(limit: number) {
   const posts = await getAllPosts();
-  return posts.filter(post => post.overview && post.title !== "About Me").slice(0, limit); 
+  return posts.filter(post => post.dumb && post.title !== "About Me").slice(0, limit); 
 }
 
 export async function getPinnedPosts(limit: number) {

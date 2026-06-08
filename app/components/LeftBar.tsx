@@ -6,7 +6,6 @@ import { useMomentumScroll } from '@/app/lib/useMomentumScroll';
 const MY_PIC_URL = 'https://raw.githubusercontent.com/VIINIU/vini_blog_db/refs/heads/main/images/About_me/About_me.png';
 
 export default function LeftBar() {
-  // 공통 커스텀 훅을 사용하여 관성 스크롤 로직을 재사용하고 중복을 제거한 상태를 유지
   const elementRef = useMomentumScroll(0.45, 0.05);
 
   return (

@@ -4,6 +4,7 @@ import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
 import LeftBar from '@/app/components/LeftBar';
 import RightBar from '@/app/components/RightBar';
+import GoogleAnalytics from '@/app/components/GoogleAnalytics';
 
 import { RightBarProvider } from '@/app/components/RightBarContext'; 
 
@@ -16,9 +17,12 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="flex flex-col text-black font-dos bg-background h-fit" suppressHydrationWarning>
+        {gaId && <GoogleAnalytics gaId={gaId} />}
         <RightBarProvider> 
           <Header />
           <div className="pt-16  select-none  flex flex-col gap-[20px] min-h-screen w-full items-center">

@@ -2,9 +2,9 @@
 
 import Script from 'next/script';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 
-export default function GoogleAnalytics({ gaId }: { gaId: string }) {
+function GoogleAnalyticsInner({ gaId }: { gaId: string }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -16,6 +16,10 @@ export default function GoogleAnalytics({ gaId }: { gaId: string }) {
     }
   }, [pathname, searchParams, gaId]);
 
+  return null;
+}
+
+export default function GoogleAnalytics({ gaId }: { gaId: string }) {
   if (!gaId) {
     console.warn('GoogleAnalytics: gaId is missing');
     return null;
@@ -41,6 +45,9 @@ export default function GoogleAnalytics({ gaId }: { gaId: string }) {
           `,
         }}
       />
+      <Suspense fallback={null}>
+        <GoogleAnalyticsInner gaId={gaId} />
+      </Suspense>
     </>
   );
 }

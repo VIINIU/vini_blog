@@ -1,9 +1,25 @@
 'use client';
 
 import Script from 'next/script';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function GoogleAnalytics({ gaId }: { gaId: string }) {
-  if (!gaId) return null;
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    if (gaId && typeof window.gtag === 'function') {
+      window.gtag('config', gaId, {
+        page_path: pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : ''),
+      });
+    }
+  }, [pathname, searchParams, gaId]);
+
+  if (!gaId) {
+    console.warn('GoogleAnalytics: gaId is missing');
+    return null;
+  }
 
   return (
     <>
@@ -27,4 +43,12 @@ export default function GoogleAnalytics({ gaId }: { gaId: string }) {
       />
     </>
   );
+}
+
+// 타입 정의 추가
+declare global {
+  interface Window {
+    dataLayer: any[];
+    gtag: (...args: any[]) => void;
+  }
 }

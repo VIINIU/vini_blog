@@ -16,7 +16,8 @@ pipeline {
         stage("Build Docker Image") {
             steps {
                 script {
-                    image = docker.build("${DOCKER_IMAGE_STORAGE}/${DOCKER_IMAGE_NAME}")
+                    // Requires NEXT_PUBLIC_GA_ID to be set in Jenkins environment variables or credentials
+                    image = docker.build("${DOCKER_IMAGE_STORAGE}/${DOCKER_IMAGE_NAME}", "--build-arg NEXT_PUBLIC_GA_ID=${NEXT_PUBLIC_GA_ID} .")
                 }
             }
         }

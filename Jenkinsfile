@@ -16,8 +16,9 @@ pipeline {
         stage("Build Docker Image") {
             steps {
                 script {
-                    // Requires NEXT_PUBLIC_GA_ID to be set in Jenkins environment variables or credentials
-                    image = docker.build("${DOCKER_IMAGE_STORAGE}/${DOCKER_IMAGE_NAME}", "--build-arg NEXT_PUBLIC_GA_ID=${NEXT_PUBLIC_GA_ID} .")
+                    // Use a fallback value if the parameter is not set to avoid MissingPropertyException
+                    def ga_id = params.NEXT_PUBLIC_GA_ID ?: "G-7796QFBRM3"
+                    image = docker.build("${DOCKER_IMAGE_STORAGE}/${DOCKER_IMAGE_NAME}", "--build-arg NEXT_PUBLIC_GA_ID=${ga_id} .")
                 }
             }
         }

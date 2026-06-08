@@ -8,7 +8,7 @@ type CardProps = {
   title: string;
   category: string[];
   project: string[];
-  pinned: string;
+  pinned: boolean;
   date: string;
   image: string;
   preview: string;

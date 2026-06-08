@@ -56,7 +56,7 @@ export async function getAllPosts() {
           project: data.project
             ? data.project.split(",").map((s: string) => s.trim())
             : [],
-          pinned: data.pinned || "",
+          pinned: data.pinned === true || data.pinned === "true",
           date: data.date ? new Date(data.date).toISOString().split("T")[0] : "",
           image: imagePath,
           preview: extractPreview(content, 50),

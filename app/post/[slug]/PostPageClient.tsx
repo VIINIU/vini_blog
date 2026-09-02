@@ -47,7 +47,7 @@ export default function PostPageClient({ initialSlug }: { initialSlug: string })
       let processedContent = contentWithBookmarks.replace(
         /^[ \t]*\[\^?([a-zA-Z0-9_-]+)\](?::|\s+)(?!\()(.*)$/gm,
         (_, id, rest) => {
-          return `<span id="ref-${id}" class="reference-item block scroll-mt-24 my-2 text-stone-700 text-xs sm:text-sm leading-relaxed"><a href="#fnref-${id}" class="ref-backlink font-bold text-stone-800 hover:text-[#96c2f8] transition-colors duration-200 mr-1.5" title="본문으로 이동">[${id}]</a> ${rest}</span>`;
+          return `<span id="ref-${id}" class="reference-item block scroll-mt-24 py-1 text-stone-700 text-xs sm:text-sm leading-relaxed"><a href="#fnref-${id}" class="ref-backlink font-bold text-stone-800 hover:text-[#96c2f8] transition-colors duration-200 mr-1.5" title="본문으로 이동">[${id}]</a> ${rest}</span>`;
         }
       );
 

@@ -459,10 +459,14 @@ ul.custom-bullet li::before {
 .reference-item {
   scroll-margin-top: 6rem;
   border-radius: 0.5rem;
-  padding: 0.35rem 0.5rem;
+  padding: 0.25rem 0.5rem;
   margin-left: -0.5rem;
   margin-right: -0.5rem;
   transition: background-color 0.3s ease;
+}
+
+.reference-item + br {
+  display: none !important;
 }
 
 .reference-item a.ref-backlink {

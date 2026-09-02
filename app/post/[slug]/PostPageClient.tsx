@@ -43,6 +43,26 @@ export default function PostPageClient({ initialSlug }: { initialSlug: string })
         return `<div class="bookmark-wrapper"><a href="${url}" target="_blank" rel="noopener noreferrer" class="notion-bookmark" data-url="${url}"><div class="bookmark-info"><div class="bookmark-title">Loading...</div><div class="bookmark-description"></div><div class="bookmark-link-wrapper"><img src="" class="bookmark-favicon" style="display:none" /><span class="bookmark-link">${url}</span></div></div><div class="bookmark-image" style="display:none"><img src="" style="display:none" /></div></a></div>`;
       });
 
+      // 1. Reference definition conversion (e.g. `[1] ...`, `[^1]: ...`, `[^1] ...`)
+      let processedContent = contentWithBookmarks.replace(
+        /^[ \t]*\[\^?([a-zA-Z0-9_-]+)\](?::|\s+)(?!\()(.*)$/gm,
+        (_, id, rest) => {
+          return `<span id="ref-${id}" class="reference-item block scroll-mt-24 my-2 text-stone-700 text-xs sm:text-sm leading-relaxed"><a href="#fnref-${id}" class="ref-backlink font-bold text-stone-800 hover:text-[#96c2f8] transition-colors duration-200 mr-1.5" title="본문으로 이동">[${id}]</a> ${rest}</span>`;
+        }
+      );
+
+      // 2. Footnote citations in body (e.g. `[^1]`, `[^6]`, `[^7]`)
+      const refCounts: Record<string, number> = {};
+      processedContent = processedContent.replace(
+        /\[\^([a-zA-Z0-9_-]+)\]/g,
+        (_, id) => {
+          refCounts[id] = (refCounts[id] || 0) + 1;
+          const count = refCounts[id];
+          const refId = `fnref-${id}${count > 1 ? `-${count}` : ""}`;
+          return `<sup class="footnote-ref scroll-mt-24"><a href="#ref-${id}" id="${refId}" class="footnote-link inline-block font-semibold text-stone-600 hover:text-[#96c2f8] transition-colors duration-200 text-xs px-0.5" title="레퍼런스 [${id}] (으)로 이동">[${id}]</a></sup>`;
+        }
+      );
+
       const renderer = new marked.Renderer();
       const headings: { floor: string; label: string; targetId: string; depth: number }[] = [];
       const usedSlugs = new Map<string, number>();
@@ -129,17 +149,17 @@ export default function PostPageClient({ initialSlug }: { initialSlug: string })
         breaks: true,  
       });
 
-      const htmlContent = await marked(contentWithBookmarks);  
-      const hasH4 = headings.some(h => h.depth === 4);
-      const hasH3 = headings.some(h => h.depth === 3);
+      const htmlContent = await marked(processedContent);  
       const hasH2 = headings.some(h => h.depth === 2);
+      const hasH3 = headings.some(h => h.depth === 3);
+      const hasH4 = headings.some(h => h.depth === 4);
 
-      const floorsData = hasH3
+      const floorsData = hasH2
+        ? headings.filter(h => h.depth === 2).map(({ label, targetId }) => ({ floor: "", label, targetId }))
+        : hasH3
         ? headings.filter(h => h.depth === 3).map(({ label, targetId }) => ({ floor: "", label, targetId }))
         : hasH4
         ? headings.filter(h => h.depth === 4).map(({ label, targetId }) => ({ floor: "", label, targetId }))
-        : hasH2
-        ? headings.filter(h => h.depth === 2).map(({ label, targetId }) => ({ floor: "", label, targetId }))
         : [];
       
       setTitle(data.title);
@@ -198,6 +218,20 @@ export default function PostPageClient({ initialSlug }: { initialSlug: string })
         if (titleEl) titleEl.textContent = url;
       }
     });
+
+    const hash = window.location.hash;
+    if (hash) {
+      try {
+        const target = document.querySelector(decodeURIComponent(hash));
+        if (target) {
+          setTimeout(() => {
+            target.scrollIntoView({ behavior: "smooth" });
+          }, 150);
+        }
+      } catch {
+        // ignore invalid hash selector
+      }
+    }
   }, [content]);
 
   return (

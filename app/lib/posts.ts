@@ -10,6 +10,7 @@ function extractPreview(content: string, length: number = 100): string {
     .join("\n");
   text = text.replace(/<[^>]+>/g, "");
   text = text.replace(/[#>*_`-]/g, "");
+  text = text.replace(/\[\^.*?\]/g, "");
   text = text.replace(/\s+/g, " ").trim();
   return text.slice(0, length) + (text.length > length ? "..." : "");
 }

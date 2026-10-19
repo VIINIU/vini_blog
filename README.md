@@ -54,3 +54,12 @@ This project is built using the latest versions of modern frameworks and librari
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## PWA
+
+- Production builds provide a web app manifest and a service worker. Deployment requires HTTPS (localhost is also supported).
+- Install through the browser's install menu, or Safari's Share → Add to Home Screen. There is no in-page install banner, and the existing web layout is unchanged.
+- The service worker stores successful full-page navigations, blog content, images, and fonts after it takes control. Offline requests use saved responses; uncached pages show a self-contained offline notice. The first visit and client-side navigation do not guarantee that a full HTML page has been stored. To check a post offline, reload it online after the service worker activates, then disconnect and reload again.
+- Next.js RSC navigation responses, API requests, and analytics are excluded from caching. Offline client-side navigation is not guaranteed; use a full-page reload to request a saved page.
+- Cache storage is limited to 150 entries. Updates wait for existing tabs to close; bump the cache version in `public/sw.js` when changing the offline resources or cache policy.
+- For verification, build and start production locally, inspect Application → Manifest / Service Workers in browser developer tools, then check installation and offline reloads. Development mode does not register the service worker. If testing development on an origin previously used for production, unregister its worker and clear its cache first.
+

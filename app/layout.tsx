@@ -1,12 +1,12 @@
 import './globals.css';
-import { Metadata } from 'next';
-import Header from '@/app/components/Header';
+import { Metadata, Viewport } from 'next';
 import Footer from '@/app/components/Footer';
+import GoogleAnalytics from '@/app/components/GoogleAnalytics';
+import Header from '@/app/components/Header';
 import LeftBar from '@/app/components/LeftBar';
 import RightBar from '@/app/components/RightBar';
-import GoogleAnalytics from '@/app/components/GoogleAnalytics';
-
-import { RightBarProvider } from '@/app/components/RightBarContext'; 
+import { RightBarProvider } from '@/app/components/RightBarContext';
+import ServiceWorkerRegistration from '@/app/components/ServiceWorkerRegistration';
 
 export const metadata: Metadata = {
   title: {
@@ -14,7 +14,12 @@ export const metadata: Metadata = {
     template: "%s | VINI BLOG", 
   },
   description: "VINI의 Tech blog",
+  applicationName: 'VINI BLOG',
+  appleWebApp: { capable: true, title: 'VINI BLOG', statusBarStyle: 'default' },
+  icons: { apple: '/icons/apple-touch-icon.png' },
 };
+
+export const viewport: Viewport = { themeColor: '#fafaf9' };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
@@ -22,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="flex flex-col text-black font-dos bg-background h-fit" suppressHydrationWarning>
+        <ServiceWorkerRegistration />
         {gaId && <GoogleAnalytics gaId={gaId} />}
         <RightBarProvider> 
           <Header />
